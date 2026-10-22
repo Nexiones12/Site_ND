@@ -59,7 +59,7 @@
                 </div>
             </div>
 
-            <!-- Bloc Cursus (Style Apple Card) -->
+            <!-- Bloc Cursus -->
             <div class="md:col-span-5 bg-zinc-900/50 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] space-y-6 shadow-2xl hover:scale-[1.02] hover:border-white/20 transition duration-500 cursor-default group">
                 <div class="flex justify-between items-center border-b border-white/10 pb-4">
                     <h2 class="text-lg font-bold tracking-tight text-white">Cursus</h2>
@@ -85,39 +85,43 @@
             </div>
         </section>
 
-        <!-- Section Compétences -->
+        <!-- Section Compétences (Maintenant cliquable) -->
         <section class="space-y-12">
             <div class="text-center max-w-2xl mx-auto space-y-2">
                 <h2 class="text-3xl font-bold tracking-tight text-white">Expertises.</h2>
-                <p class="text-slate-400 text-sm font-light">L'alliance du terrain et de l'ingénierie.</p>
+                <p class="text-slate-400 text-sm font-light">Cliquez sur une expertise pour voir les détails de mes interventions.</p>
             </div>
 
             <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
                 <!-- Carte 1 -->
-                <div class="bg-zinc-900/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 hover:scale-[1.03] hover:bg-zinc-800/80 hover:border-cyan-500/50 transition duration-500 group cursor-default shadow-xl">
+                <div class="expertise-card cursor-pointer bg-zinc-900/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 hover:scale-[1.03] hover:bg-zinc-800/80 hover:border-cyan-500/50 transition duration-500 group shadow-xl" data-id="infra">
                     <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition duration-500">⚡</div>
-                    <h3 class="font-bold text-white tracking-tight">Réseaux & Infra</h3>
+                    <h3 class="font-bold text-white tracking-tight">Infrastructure & Réseaux</h3>
                     <p class="text-slate-400 text-xs leading-relaxed">Architectures from scratch, VLANs, SIP, serveurs GPO.</p>
+                    <div class="pt-2 text-cyan-400 text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300">Voir les détails &rarr;</div>
                 </div>
                 <!-- Carte 2 -->
-                <div class="bg-zinc-900/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 hover:scale-[1.03] hover:bg-zinc-800/80 hover:border-cyan-500/50 transition duration-500 group cursor-default shadow-xl">
+                <div class="expertise-card cursor-pointer bg-zinc-900/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 hover:scale-[1.03] hover:bg-zinc-800/80 hover:border-cyan-500/50 transition duration-500 group shadow-xl" data-id="secu">
                     <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition duration-500">🛡️</div>
-                    <h3 class="font-bold text-white tracking-tight">Supervision & Sécu</h3>
+                    <h3 class="font-bold text-white tracking-tight">Supervision & Sécurité</h3>
                     <p class="text-slate-400 text-xs leading-relaxed">Outils de monitoring proactifs et anticipation des pannes.</p>
+                    <div class="pt-2 text-cyan-400 text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300">Voir les détails &rarr;</div>
                 </div>
                 <!-- Carte 3 -->
-                <div class="bg-zinc-900/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 hover:scale-[1.03] hover:bg-zinc-800/80 hover:border-cyan-500/50 transition duration-500 group cursor-default shadow-xl">
+                <div class="expertise-card cursor-pointer bg-zinc-900/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 hover:scale-[1.03] hover:bg-zinc-800/80 hover:border-cyan-500/50 transition duration-500 group shadow-xl" data-id="hard">
                     <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition duration-500">🔧</div>
                     <h3 class="font-bold text-white tracking-tight">Hardware & Terrain</h3>
                     <p class="text-slate-400 text-xs leading-relaxed">Montage PC de précision, diagnostic sur site et résolutions complexes.</p>
+                    <div class="pt-2 text-cyan-400 text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300">Voir les détails &rarr;</div>
                 </div>
                 <!-- Carte 4 -->
-                <div class="bg-zinc-900/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 sm:col-span-2 md:col-span-3 hover:scale-[1.02] hover:bg-zinc-800/80 hover:border-cyan-500/50 transition duration-500 group cursor-default shadow-xl flex flex-col md:flex-row md:items-center gap-6">
+                <div class="expertise-card cursor-pointer bg-zinc-900/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 sm:col-span-2 md:col-span-3 hover:scale-[1.02] hover:bg-zinc-800/80 hover:border-cyan-500/50 transition duration-500 group shadow-xl flex flex-col md:flex-row md:items-center gap-6" data-id="lead">
                     <div class="w-12 h-12 shrink-0 rounded-full bg-black border border-white/10 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 transition duration-500">👥</div>
-                    <div>
+                    <div class="flex-1">
                         <h3 class="font-bold text-white tracking-tight">Leadership & Relation Client</h3>
                         <p class="text-slate-400 text-sm leading-relaxed mt-2">Excellent relationnel, écoute active lors des interventions pour cerner les besoins. Capacité naturelle à diriger, organiser les tâches et fédérer les équipes techniques.</p>
                     </div>
+                    <div class="text-cyan-400 text-sm font-semibold opacity-0 group-hover:opacity-100 transition duration-300 shrink-0">Voir les détails &rarr;</div>
                 </div>
             </div>
         </section>
@@ -145,5 +149,125 @@
         <p>&copy; 2026 Noa. Tous droits réservés. Conçu avec rigueur.</p>
     </footer>
 
+    <!-- MODALE DES EXPERTISES (Cachée par défaut) -->
+    <div id="exp-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-md opacity-0 transition-opacity duration-300 px-4">
+        <div id="exp-modal-content" class="bg-zinc-900 border border-white/10 rounded-3xl p-8 max-w-2xl w-full shadow-2xl scale-95 transition-transform duration-300 relative overflow-hidden">
+            <!-- Déco floue en arrière-plan de la modale -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <button id="exp-close" class="absolute top-6 right-6 text-white/50 hover:text-white transition text-3xl font-light z-10">&times;</button>
+            
+            <div class="relative z-10 space-y-6">
+                <div class="flex items-center gap-4 border-b border-white/10 pb-4">
+                    <div id="exp-icon" class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center text-2xl"></div>
+                    <h3 id="exp-title" class="text-2xl font-bold text-white tracking-tight"></h3>
+                </div>
+                
+                <div class="space-y-4 text-sm leading-relaxed">
+                    <div>
+                        <h4 class="text-cyan-400 font-bold uppercase tracking-wider text-xs mb-1">Les Tâches</h4>
+                        <p id="exp-tasks" class="text-slate-300"></p>
+                    </div>
+                    <div>
+                        <h4 class="text-cyan-400 font-bold uppercase tracking-wider text-xs mb-1">Le But</h4>
+                        <p id="exp-goal" class="text-slate-300"></p>
+                    </div>
+                    <div>
+                        <h4 class="text-cyan-400 font-bold uppercase tracking-wider text-xs mb-1">Le Rendu Obtenu</h4>
+                        <p id="exp-result" class="text-slate-300"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT GESTION MODALE EXPERTISES -->
+    <script>
+        // Données des expertises
+        const expertisesData = {
+            'infra': {
+                icon: '⚡',
+                title: 'Infrastructure & Réseaux',
+                tasks: "Déploiement de serveurs physiques et virtuels de zéro, configuration de switchs et routeurs professionnels, segmentation via VLANs, paramétrage de la téléphonie sur IP (SIP) et gestion centralisée des stratégies de groupe (GPO).",
+                goal: "Bâtir une architecture réseau robuste, hautement disponible et évolutive, capable de soutenir l'activité de l'entreprise ou des clients sans la moindre interruption.",
+                result: "Une infrastructure réseau fiable et optimisée, une communication interne fluide, et une gestion des accès sécurisée garantissant un environnement de travail stable."
+            },
+            'secu': {
+                icon: '🛡️',
+                title: 'Supervision & Sécurité',
+                tasks: "Déploiement de sondes de monitoring (type Zabbix, PRTG...), configuration d'alertes en temps réel, analyse de logs, et mise en place de politiques de pare-feu strictes.",
+                goal: "Avoir un contrôle total sur la santé de l'infrastructure, anticiper les pannes avant qu'elles n'impactent les utilisateurs, et garantir l'intégrité des données face aux menaces extérieures.",
+                result: "Un dashboard de supervision centralisé offrant une vision en temps réel, une réduction drastique des temps d'indisponibilité (downtime), et un réseau hermétique aux cybermenaces."
+            },
+            'hard': {
+                icon: '🔧',
+                title: 'Hardware & Dépannage',
+                tasks: "Montage complet de postes de travail haute précision, cable management (câblage) chirurgical dans les baies serveurs, diagnostic matériel sur site, et remplacement de composants critiques.",
+                goal: "Fournir un matériel performant, esthétique et durable, et restaurer la productivité des utilisateurs le plus rapidement possible lors d'un incident technique.",
+                result: "Des postes et des baies serveurs parfaitement propres et documentés, une durée de vie du matériel allongée, et un taux de satisfaction utilisateur maximal grâce à des interventions éclairs."
+            },
+            'lead': {
+                icon: '👥',
+                title: 'Leadership & Relation Client',
+                tasks: "Conduite de projets techniques, écoute active des besoins lors d'audits clients, répartition stratégique des tâches techniques au sein de l'équipe, et vulgarisation de concepts IT complexes.",
+                goal: "Aligner la technique pure sur les véritables besoins métiers du client, fédérer l'équipe autour d'objectifs clairs, et instaurer un climat de confiance total.",
+                result: "Des projets livrés dans les délais, une équipe technique motivée et coordonnée, et des clients fidélisés et rassurés par une communication transparente."
+            }
+        };
+
+        const modal = document.getElementById('exp-modal');
+        const modalContent = document.getElementById('exp-modal-content');
+        const closeBtn = document.getElementById('exp-close');
+        
+        // Cibler les éléments à remplir
+        const iconEl = document.getElementById('exp-icon');
+        const titleEl = document.getElementById('exp-title');
+        const tasksEl = document.getElementById('exp-tasks');
+        const goalEl = document.getElementById('exp-goal');
+        const resultEl = document.getElementById('exp-result');
+
+        // Ouvrir la modale
+        document.querySelectorAll('.expertise-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const id = card.getAttribute('data-id');
+                const data = expertisesData[id];
+
+                // Remplir les données
+                iconEl.textContent = data.icon;
+                titleEl.textContent = data.title;
+                tasksEl.textContent = data.tasks;
+                goalEl.textContent = data.goal;
+                resultEl.textContent = data.result;
+
+                // Afficher la modale avec animation
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                setTimeout(() => {
+                    modal.classList.remove('opacity-0');
+                    modalContent.classList.remove('scale-95');
+                    modalContent.classList.add('scale-100');
+                }, 10);
+            });
+        });
+
+        // Fermer la modale
+        const closeExpModal = () => {
+            modal.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300);
+        };
+
+        closeBtn.addEventListener('click', closeExpModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeExpModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeExpModal();
+        });
+    </script>
 </body>
 </html>
