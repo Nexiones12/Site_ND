@@ -17,17 +17,12 @@ document.addEventListener("mousemove", (e) => {
 document.querySelectorAll('.magnetic-btn').forEach(btn => {
     btn.addEventListener('mousemove', (e) => {
         const rect = btn.getBoundingClientRect();
-        // Calcule la distance entre la souris et le centre du bouton
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
-        
-        // Déplace légèrement le bouton vers la souris (force de 0.3)
         btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
         btn.style.transition = 'transform 0.1s ease-out';
     });
-
     btn.addEventListener('mouseleave', () => {
-        // Retour élastique à la position d'origine
         btn.style.transform = 'translate(0px, 0px)';
         btn.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1)';
     });
@@ -43,18 +38,45 @@ document.querySelectorAll('.tilt-card').forEach(card => {
         const y = e.clientY - rect.top;
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
-        
-        // Inclinaison max de 10 degrés
         const rotateX = ((y - centerY) / centerY) * -10;
         const rotateY = ((x - centerX) / centerX) * 10;
         
         card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
         card.style.transition = 'transform 0.1s ease-out';
     });
-
     card.addEventListener('mouseleave', () => {
-        // Retour fluide à plat
         card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
         card.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1)';
+    });
+});
+
+// ==========================================
+// 4. TRANSITIONS DE PAGE FLUIDES (Fade In / Fade Out)
+// ==========================================
+// Apparition en douceur au chargement de la page
+window.addEventListener('pageshow', () => {
+    document.body.classList.remove('opacity-0');
+    document.body.classList.add('opacity-100');
+});
+
+// Disparition en douceur au clic sur un lien du menu
+document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        const target = this.getAttribute('target');
+        
+        // On vérifie que c'est un lien vers une autre page de ton site (et pas un onglet externe)
+        if (href && href.endsWith('.html') && target !== '_blank') {
+            e.preventDefault(); // On bloque le rechargement brutal
+            
+            // On déclenche le fondu au noir
+            document.body.classList.remove('opacity-100');
+            document.body.classList.add('opacity-0');
+            
+            // On change de page une fois l'animation terminée (400ms)
+            setTimeout(() => {
+                window.location.href = href;
+            }, 400);
+        }
     });
 });
