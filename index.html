@@ -5,35 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noa | Portfolio - Administrateur Systèmes, Réseaux & Cloud (ASRC)</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- CONFIGURATION TAILWIND POUR LE DARK MODE -->
+    <script>
+        tailwind.config = { darkMode: 'class' }
+        // Vérification immédiate du thème pour éviter les clignotements au chargement
+        if (localStorage.theme === 'light') {
+            document.documentElement.classList.remove('dark');
+        } else {
+            document.documentElement.classList.add('dark'); // Dark mode par défaut
+        }
+    </script>
+
     <style>
         /* Animations fond blobs */
-        @keyframes blob {
-            0% { transform: translate(0px, 0px) scale(1); }
-            33% { transform: translate(30px, -50px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
-            100% { transform: translate(0px, 0px) scale(1); }
-        }
+        @keyframes blob { 0% { transform: translate(0px, 0px) scale(1); } 33% { transform: translate(30px, -50px) scale(1.1); } 66% { transform: translate(-20px, 20px) scale(0.9); } 100% { transform: translate(0px, 0px) scale(1); } }
         .animate-blob { animation: blob 10s infinite alternate ease-in-out; }
         .animation-delay-2000 { animation-delay: 2s; }
         .animation-delay-4000 { animation-delay: 4s; }
     </style>
 </head>
-<body class="bg-black text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-white relative overflow-x-hidden opacity-0 transition-opacity duration-500 ease-in-out">
+<!-- Ajout des classes "dark:" pour gérer les deux modes -->
+<body class="bg-slate-50 dark:bg-black text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-white relative overflow-x-hidden opacity-0 transition-opacity duration-500 ease-in-out">
+
     <!-- FOND PARALLAXE -->
     <div id="parallax-wrapper" class="fixed inset-0 w-full h-full z-[-1] overflow-hidden pointer-events-none">
-        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-cyan-600/20 rounded-full mix-blend-screen filter blur-[120px] animate-blob"></div>
-        <div class="absolute top-[20%] right-[-10%] w-[600px] h-[600px] bg-blue-600/15 rounded-full mix-blend-screen filter blur-[150px] animate-blob animation-delay-2000"></div>
-        <div class="absolute bottom-[-20%] left-[20%] w-[700px] h-[700px] bg-indigo-600/15 rounded-full mix-blend-screen filter blur-[150px] animate-blob animation-delay-4000"></div>
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-cyan-600/20 dark:bg-cyan-600/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[120px] animate-blob"></div>
+        <div class="absolute top-[20%] right-[-10%] w-[600px] h-[600px] bg-blue-600/15 dark:bg-blue-600/15 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[150px] animate-blob animation-delay-2000"></div>
+        <div class="absolute bottom-[-20%] left-[20%] w-[700px] h-[700px] bg-indigo-600/15 dark:bg-indigo-600/15 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[150px] animate-blob animation-delay-4000"></div>
     </div>
 
     <!-- En-tête -->
-    <header class="sticky top-0 z-50 bg-black/50 backdrop-blur-xl border-b border-white/10 transition-all">
+    <header class="sticky top-0 z-50 bg-white/70 dark:bg-black/50 backdrop-blur-xl border-b border-slate-200 dark:border-white/10 transition-all">
         <nav class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between text-xs tracking-wide">
-            <a href="index.html" class="font-semibold text-white hover:text-cyan-400 transition">NOA.DEV</a>
-            <div class="flex gap-8 font-medium text-slate-300">
-                <a href="index.html" class="text-white font-semibold transition">Accueil</a>
-                <a href="passions.html" class="hover:text-white transition">Passions</a>
-                <a href="projets.html" class="hover:text-white transition">Projets & IA</a>
+            <a href="index.html" class="font-semibold text-slate-900 dark:text-white hover:text-cyan-500 dark:hover:text-cyan-400 transition">NOA.DEV</a>
+            <div class="flex items-center gap-8 font-medium text-slate-600 dark:text-slate-300">
+                <a href="index.html" class="text-slate-900 dark:text-white font-semibold transition">Accueil</a>
+                <a href="passions.html" class="hover:text-slate-900 dark:hover:text-white transition">Passions</a>
+                <a href="projets.html" class="hover:text-slate-900 dark:hover:text-white transition">Projets & IA</a>
+                
+                <!-- BOUTON THÈME -->
+                <button id="theme-toggle" class="p-2 rounded-full bg-slate-200 dark:bg-zinc-800 hover:bg-slate-300 dark:hover:bg-zinc-700 transition" title="Changer de thème">
+                    <span id="theme-icon" class="text-sm">🌞</span>
+                </button>
             </div>
         </nav>
     </header>
@@ -44,55 +58,53 @@
             <div class="md:col-span-7 space-y-6">
                 <div class="flex items-center gap-4">
                     <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 p-[2px] shadow-lg shadow-cyan-500/20 shrink-0">
-                        <div class="w-full h-full bg-black rounded-full overflow-hidden flex items-center justify-center">
+                        <div class="w-full h-full bg-slate-50 dark:bg-black rounded-full overflow-hidden flex items-center justify-center">
                             <img src="assets/img/pdp_site.jpeg" alt="Noa" class="w-full h-full object-cover">
                         </div>
                     </div>
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900/80 border border-white/10 text-slate-300 text-xs font-semibold backdrop-blur-md">
-                        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span> Alternance Syres Telecom
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 dark:bg-zinc-900/80 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 text-xs font-semibold backdrop-blur-md">
+                        <span class="w-2 h-2 rounded-full bg-cyan-500 dark:bg-cyan-400 animate-pulse"></span> Alternance Syres Telecom
                     </div>
                 </div>
 
-                <h1 class="text-5xl md:text-7xl font-black tracking-tight text-white leading-tight">
-                    Architecte IT.<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Futur ingénieur.</span>
+                <h1 class="text-5xl md:text-7xl font-black tracking-tight text-slate-900 dark:text-white leading-tight">
+                    Architecte IT.<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500">Futur ingénieur.</span>
                 </h1>
-                <p class="text-slate-400 text-base md:text-lg font-light leading-relaxed">
-                    Salut, je suis <strong class="text-white font-medium">Noa</strong>. Étudiant en 3ème année ASRC. Passionné par le hardware de précision, la création d'infrastructures de zéro et le management d'équipes techniques.
+                <p class="text-slate-600 dark:text-slate-400 text-base md:text-lg font-light leading-relaxed">
+                    Salut, je suis <strong class="text-slate-900 dark:text-white font-medium">Noa</strong>. Étudiant en 3ème année ASRC. Passionné par le hardware de précision, la création d'infrastructures de zéro et le management d'équipes techniques.
                 </p>
                 <div class="flex flex-wrap gap-4 pt-4">
-                    <!-- AJOUT DE LA CLASSE magnetic-btn -->
-                    <a href="https://github.com/Nexiones12" target="_blank" class="magnetic-btn px-6 py-3 rounded-full bg-zinc-900 border border-white/10 hover:border-cyan-500 hover:bg-black text-white text-xs tracking-wide font-semibold shadow-xl flex items-center gap-2 group">
+                    <a href="https://github.com/Nexiones12" target="_blank" class="magnetic-btn px-6 py-3 rounded-full bg-slate-200 dark:bg-zinc-900 border border-slate-300 dark:border-white/10 hover:border-cyan-500 dark:hover:border-cyan-500 hover:bg-white dark:hover:bg-black text-slate-900 dark:text-white text-xs tracking-wide font-semibold shadow-md dark:shadow-xl flex items-center gap-2 group">
                         <span>GitHub</span>
                         <span class="group-hover:translate-x-1 transition">&rarr;</span>
                     </a>
-                    <!-- AJOUT DE LA CLASSE magnetic-btn -->
-                    <a href="https://www.linkedin.com/in/noa-doumbia-7b5061332/" target="_blank" class="magnetic-btn px-6 py-3 rounded-full bg-white text-black hover:bg-cyan-50 text-xs tracking-wide font-semibold shadow-xl shadow-white/10">
+                    <a href="https://www.linkedin.com/in/noa-doumbia-7b5061332/" target="_blank" class="magnetic-btn px-6 py-3 rounded-full bg-slate-900 dark:bg-white text-white dark:text-black hover:bg-cyan-600 dark:hover:bg-cyan-50 text-xs tracking-wide font-semibold shadow-md dark:shadow-xl shadow-slate-900/10 dark:shadow-white/10">
                         LinkedIn Pro
                     </a>
                 </div>
             </div>
 
-            <!-- Cursus : AJOUT DE LA CLASSE tilt-card -->
-            <div class="tilt-card md:col-span-5 bg-zinc-900/50 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] space-y-6 shadow-2xl cursor-default group">
-                <div class="flex justify-between items-center border-b border-white/10 pb-4">
-                    <h2 class="text-lg font-bold tracking-tight text-white">Cursus</h2>
-                    <span class="text-[10px] uppercase tracking-widest text-cyan-400 font-bold bg-cyan-400/10 px-2 py-1 rounded-full">Formation</span>
+            <!-- Cursus -->
+            <div class="tilt-card md:col-span-5 bg-white/60 dark:bg-zinc-900/50 backdrop-blur-xl border border-slate-200 dark:border-white/10 p-8 rounded-[2rem] space-y-6 shadow-xl dark:shadow-2xl cursor-default group">
+                <div class="flex justify-between items-center border-b border-slate-200 dark:border-white/10 pb-4">
+                    <h2 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">Cursus</h2>
+                    <span class="text-[10px] uppercase tracking-widest text-cyan-600 dark:text-cyan-400 font-bold bg-cyan-100 dark:bg-cyan-400/10 px-2 py-1 rounded-full">Formation</span>
                 </div>
                 <ul class="space-y-6 text-sm">
                     <li class="relative pl-6">
-                        <div class="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)] group-hover:scale-150 transition duration-300"></div>
-                        <h3 class="font-medium text-white">Bachelor ASRC (3ème année)</h3>
-                        <p class="text-slate-400 text-xs mt-1 leading-relaxed">Alternance chez Syres Telecom. Déploiements d'infrastructures.</p>
+                        <div class="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-cyan-500 dark:bg-cyan-400 shadow-[0_0_8px_rgba(6,182,212,0.6)] dark:shadow-[0_0_8px_rgba(34,211,238,0.8)] group-hover:scale-150 transition duration-300"></div>
+                        <h3 class="font-medium text-slate-900 dark:text-white">Bachelor ASRC (3ème année)</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs mt-1 leading-relaxed">Alternance chez Syres Telecom. Déploiements d'infrastructures.</p>
                     </li>
                     <li class="relative pl-6">
-                        <div class="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-slate-600"></div>
-                        <h3 class="font-medium text-white">BTS CIEL</h3>
-                        <p class="text-slate-400 text-xs mt-1 leading-relaxed">Cybersécurité, Informatique et Électronique, réseaux.</p>
+                        <div class="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-600"></div>
+                        <h3 class="font-medium text-slate-900 dark:text-white">BTS CIEL</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs mt-1 leading-relaxed">Cybersécurité, Informatique et Électronique, réseaux.</p>
                     </li>
                     <li class="relative pl-6">
-                        <div class="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-slate-600"></div>
-                        <h3 class="font-medium text-white">Bac Pro SN (Option RISC)</h3>
-                        <p class="text-slate-400 text-xs mt-1 leading-relaxed">Réseaux Informatiques et Systèmes Communicants.</p>
+                        <div class="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-600"></div>
+                        <h3 class="font-medium text-slate-900 dark:text-white">Bac Pro SN (Option RISC)</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs mt-1 leading-relaxed">Réseaux Informatiques et Systèmes Communicants.</p>
                     </li>
                 </ul>
             </div>
@@ -101,85 +113,81 @@
         <!-- Expertises -->
         <section class="space-y-12">
             <div class="text-center max-w-2xl mx-auto space-y-2 reveal-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out">
-                <h2 class="text-3xl font-bold tracking-tight text-white">Expertises.</h2>
-                <p class="text-slate-400 text-sm font-light">Cliquez sur une expertise pour voir les détails de mes interventions.</p>
+                <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Expertises.</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm font-light">Cliquez sur une expertise pour voir les détails de mes interventions.</p>
             </div>
 
             <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-                <!-- Cartes Expertises : AJOUT DE LA CLASSE tilt-card ET RETRAIT DES CLASSES HOVER COMPLEXES -->
-                <div class="tilt-card expertise-card cursor-pointer bg-zinc-900/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 group shadow-xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 100ms;" data-id="infra">
-                    <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 transition duration-500">⚡</div>
-                    <h3 class="font-bold text-white tracking-tight">Infrastructure & Réseaux</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">Architectures from scratch, VLANs, SIP, serveurs GPO.</p>
-                    <div class="pt-2 text-cyan-400 text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300">Voir les détails &rarr;</div>
+                <!-- Cartes d'expertises avec couleurs adaptées -->
+                <div class="tilt-card expertise-card cursor-pointer bg-white/60 dark:bg-zinc-900/50 backdrop-blur-md border border-slate-200 dark:border-white/10 p-8 rounded-3xl space-y-4 shadow-lg dark:shadow-xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 100ms;" data-id="infra">
+                    <div class="w-12 h-12 rounded-full bg-slate-100 dark:bg-black border border-slate-200 dark:border-white/10 flex items-center justify-center text-cyan-500 dark:text-cyan-400 text-xl group-hover:scale-110 transition duration-500">⚡</div>
+                    <h3 class="font-bold text-slate-900 dark:text-white tracking-tight">Infrastructure & Réseaux</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">Architectures from scratch, VLANs, SIP, serveurs GPO.</p>
                 </div>
                 
-                <div class="tilt-card expertise-card cursor-pointer bg-zinc-900/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 group shadow-xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 200ms;" data-id="secu">
-                    <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 transition duration-500">🛡️</div>
-                    <h3 class="font-bold text-white tracking-tight">Supervision & Sécurité</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">Outils de monitoring proactifs et anticipation des pannes.</p>
-                    <div class="pt-2 text-cyan-400 text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300">Voir les détails &rarr;</div>
+                <div class="tilt-card expertise-card cursor-pointer bg-white/60 dark:bg-zinc-900/50 backdrop-blur-md border border-slate-200 dark:border-white/10 p-8 rounded-3xl space-y-4 shadow-lg dark:shadow-xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 200ms;" data-id="secu">
+                    <div class="w-12 h-12 rounded-full bg-slate-100 dark:bg-black border border-slate-200 dark:border-white/10 flex items-center justify-center text-cyan-500 dark:text-cyan-400 text-xl group-hover:scale-110 transition duration-500">🛡️</div>
+                    <h3 class="font-bold text-slate-900 dark:text-white tracking-tight">Supervision & Sécurité</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">Outils de monitoring proactifs et anticipation des pannes.</p>
                 </div>
                 
-                <div class="tilt-card expertise-card cursor-pointer bg-zinc-900/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 group shadow-xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 300ms;" data-id="hard">
-                    <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 transition duration-500">🔧</div>
-                    <h3 class="font-bold text-white tracking-tight">Hardware & Terrain</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">Montage PC de précision, diagnostic sur site et résolutions complexes.</p>
-                    <div class="pt-2 text-cyan-400 text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300">Voir les détails &rarr;</div>
+                <div class="tilt-card expertise-card cursor-pointer bg-white/60 dark:bg-zinc-900/50 backdrop-blur-md border border-slate-200 dark:border-white/10 p-8 rounded-3xl space-y-4 shadow-lg dark:shadow-xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 300ms;" data-id="hard">
+                    <div class="w-12 h-12 rounded-full bg-slate-100 dark:bg-black border border-slate-200 dark:border-white/10 flex items-center justify-center text-cyan-500 dark:text-cyan-400 text-xl group-hover:scale-110 transition duration-500">🔧</div>
+                    <h3 class="font-bold text-slate-900 dark:text-white tracking-tight">Hardware & Terrain</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">Montage PC de précision, diagnostic sur site et résolutions complexes.</p>
                 </div>
                 
-                <div class="tilt-card expertise-card cursor-pointer bg-zinc-900/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 sm:col-span-2 md:col-span-3 group shadow-xl flex flex-col md:flex-row md:items-center gap-6 reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 400ms;" data-id="lead">
-                    <div class="w-12 h-12 shrink-0 rounded-full bg-black border border-white/10 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 transition duration-500">👥</div>
+                <div class="tilt-card expertise-card cursor-pointer bg-white/60 dark:bg-zinc-900/50 backdrop-blur-md border border-slate-200 dark:border-white/10 p-8 rounded-3xl space-y-4 sm:col-span-2 md:col-span-3 shadow-lg dark:shadow-xl flex flex-col md:flex-row md:items-center gap-6 reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 400ms;" data-id="lead">
+                    <div class="w-12 h-12 shrink-0 rounded-full bg-slate-100 dark:bg-black border border-slate-200 dark:border-white/10 flex items-center justify-center text-cyan-500 dark:text-cyan-400 text-xl group-hover:scale-110 transition duration-500">👥</div>
                     <div class="flex-1">
-                        <h3 class="font-bold text-white tracking-tight">Leadership & Relation Client</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mt-2">Excellent relationnel, écoute active pour cerner les besoins. Capacité à diriger et fédérer les équipes.</p>
+                        <h3 class="font-bold text-slate-900 dark:text-white tracking-tight">Leadership & Relation Client</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mt-2">Excellent relationnel, écoute active pour cerner les besoins. Capacité à diriger et fédérer les équipes.</p>
                     </div>
-                    <div class="text-cyan-400 text-sm font-semibold opacity-0 group-hover:opacity-100 transition duration-300 shrink-0">Voir les détails &rarr;</div>
                 </div>
             </div>
         </section>
 
         <!-- Objectifs -->
         <section class="pt-10 reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out">
-            <div class="tilt-card bg-gradient-to-br from-zinc-900 via-black to-cyan-950/40 border border-white/10 p-10 md:p-14 rounded-[2.5rem] relative overflow-hidden group shadow-2xl">
-                <div class="absolute top-[-50%] right-[-10%] w-96 h-96 bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-cyan-500/30 transition duration-700"></div>
+            <div class="tilt-card bg-gradient-to-br from-slate-100 dark:from-zinc-900 via-white dark:via-black to-cyan-50/50 dark:to-cyan-950/40 border border-slate-200 dark:border-white/10 p-10 md:p-14 rounded-[2.5rem] relative overflow-hidden group shadow-xl dark:shadow-2xl">
+                <div class="absolute top-[-50%] right-[-10%] w-96 h-96 bg-cyan-400/20 dark:bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-cyan-400/30 dark:group-hover:bg-cyan-500/30 transition duration-700"></div>
                 <div class="relative z-10 space-y-6 max-w-3xl">
-                    <div class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-2xl shadow-inner backdrop-blur-md">🇯🇵</div>
-                    <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">Cap sur l'avenir.</h2>
-                    <p class="text-slate-300 text-sm md:text-base font-light leading-relaxed">
-                        Validation du Bachelor ASRC, puis direction le <strong class="text-white font-semibold">Master</strong>. Mon objectif ultime : intégrer un cursus permettant d'étudier au <strong class="text-cyan-400 font-semibold">Japon</strong>, leader mondial en haute technologie et berceau de l'ingénierie de précision.
+                    <div class="w-12 h-12 rounded-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center text-2xl shadow-sm dark:shadow-inner backdrop-blur-md">🇯🇵</div>
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">Cap sur l'avenir.</h2>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm md:text-base font-light leading-relaxed">
+                        Validation du Bachelor ASRC, puis direction le <strong class="text-slate-900 dark:text-white font-semibold">Master</strong>. Mon objectif ultime : intégrer un cursus permettant d'étudier au <strong class="text-cyan-600 dark:text-cyan-400 font-semibold">Japon</strong>, leader mondial en haute technologie et berceau de l'ingénierie de précision.
                     </p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="border-t border-white/10 py-12 text-center text-xs text-slate-500 mt-32 bg-black">
+    <footer class="border-t border-slate-200 dark:border-white/10 py-12 text-center text-xs text-slate-500 mt-32 bg-slate-50 dark:bg-black transition-colors">
         <p>&copy; 2026 Noa. Tous droits réservés.</p>
     </footer>
 
     <!-- MODALE DES EXPERTISES -->
-    <div id="exp-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-md opacity-0 transition-opacity duration-300 px-4">
-        <div id="exp-modal-content" class="bg-zinc-900 border border-white/10 rounded-3xl p-8 max-w-2xl w-full shadow-2xl scale-95 transition-transform duration-300 relative overflow-hidden cursor-default">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
-            <button id="exp-close" class="absolute top-6 right-6 text-white/50 hover:text-white transition text-3xl font-light z-10 cursor-pointer">&times;</button>
+    <div id="exp-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-white/80 dark:bg-black/80 backdrop-blur-md opacity-0 transition-opacity duration-300 px-4">
+        <div id="exp-modal-content" class="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 rounded-3xl p-8 max-w-2xl w-full shadow-2xl scale-95 transition-transform duration-300 relative overflow-hidden cursor-default">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-cyan-400/10 dark:bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <button id="exp-close" class="absolute top-6 right-6 text-slate-400 dark:text-white/50 hover:text-slate-900 dark:hover:text-white transition text-3xl font-light z-10 cursor-pointer">&times;</button>
             <div class="relative z-10 space-y-6">
-                <div class="flex items-center gap-4 border-b border-white/10 pb-4">
-                    <div id="exp-icon" class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center text-2xl"></div>
-                    <h3 id="exp-title" class="text-2xl font-bold text-white tracking-tight"></h3>
+                <div class="flex items-center gap-4 border-b border-slate-200 dark:border-white/10 pb-4">
+                    <div id="exp-icon" class="w-12 h-12 rounded-full bg-slate-100 dark:bg-black border border-slate-200 dark:border-white/10 flex items-center justify-center text-2xl"></div>
+                    <h3 id="exp-title" class="text-2xl font-bold text-slate-900 dark:text-white tracking-tight"></h3>
                 </div>
                 <div class="space-y-4 text-sm leading-relaxed">
                     <div>
-                        <h4 class="text-cyan-400 font-bold uppercase tracking-wider text-xs mb-1">Les Tâches</h4>
-                        <p id="exp-tasks" class="text-slate-300"></p>
+                        <h4 class="text-cyan-600 dark:text-cyan-400 font-bold uppercase tracking-wider text-xs mb-1">Les Tâches</h4>
+                        <p id="exp-tasks" class="text-slate-600 dark:text-slate-300"></p>
                     </div>
                     <div>
-                        <h4 class="text-cyan-400 font-bold uppercase tracking-wider text-xs mb-1">Le But</h4>
-                        <p id="exp-goal" class="text-slate-300"></p>
+                        <h4 class="text-cyan-600 dark:text-cyan-400 font-bold uppercase tracking-wider text-xs mb-1">Le But</h4>
+                        <p id="exp-goal" class="text-slate-600 dark:text-slate-300"></p>
                     </div>
                     <div>
-                        <h4 class="text-cyan-400 font-bold uppercase tracking-wider text-xs mb-1">Le Rendu Obtenu</h4>
-                        <p id="exp-result" class="text-slate-300"></p>
+                        <h4 class="text-cyan-600 dark:text-cyan-400 font-bold uppercase tracking-wider text-xs mb-1">Le Rendu Obtenu</h4>
+                        <p id="exp-result" class="text-slate-600 dark:text-slate-300"></p>
                     </div>
                 </div>
             </div>
@@ -188,6 +196,12 @@
 
     <!-- SCRIPTS INTÉGRÉS -->
     <script>
+        // L'icône de thème est mise à jour une première fois au chargement
+        document.addEventListener('DOMContentLoaded', () => {
+            const tIcon = document.getElementById('theme-icon');
+            if(tIcon) tIcon.textContent = document.documentElement.classList.contains('dark') ? '🌞' : '🌙';
+        });
+
         const expertisesData = {
             'infra': { icon: '⚡', title: 'Infrastructure & Réseaux', tasks: "Déploiement de serveurs, VLANs, SIP, et gestion GPO.", goal: "Bâtir une architecture réseau robuste et évolutive.", result: "Une infrastructure fiable et optimisée." },
             'secu': { icon: '🛡️', title: 'Supervision & Sécurité', tasks: "Monitoring proactif, analyse de logs, pare-feu.", goal: "Anticiper les pannes et garantir l'intégrité.", result: "Un réseau hermétique et une haute disponibilité." },
@@ -224,7 +238,6 @@
         }, observerOptions);
         document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
     </script>
-    <!-- On charge main.js pour activer nos nouveaux effets globaux -->
     <script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -80,3 +80,26 @@ document.querySelectorAll('a').forEach(link => {
         }
     });
 });
+// ==========================================
+// 5. DARK / LIGHT MODE TOGGLE
+// ==========================================
+const htmlEl = document.documentElement;
+const themeIcon = document.getElementById('theme-icon');
+const themeToggleBtn = document.getElementById('theme-toggle');
+
+// Fonction pour mettre à jour l'icône (Soleil/Lune)
+const updateIcon = () => {
+    if(themeIcon) {
+        themeIcon.textContent = htmlEl.classList.contains('dark') ? '🌞' : '🌙';
+    }
+};
+
+// Si le bouton existe sur la page
+if(themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+        htmlEl.classList.toggle('dark');
+        // Sauvegarde le choix dans le navigateur
+        localStorage.theme = htmlEl.classList.contains('dark') ? 'dark' : 'light';
+        updateIcon();
+    });
+}

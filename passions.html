@@ -5,30 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passions • Enduro | Noa</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- CONFIGURATION TAILWIND POUR LE DARK MODE -->
+    <script>
+        tailwind.config = { darkMode: 'class' }
+        if (localStorage.theme === 'light') {
+            document.documentElement.classList.remove('dark');
+        } else {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+
     <style>
-        /* Animation Roam (Violet) */
+        /* Animation Roam (Blobs Violets) */
         @keyframes roam-1 { 0% { transform: translate(0vw, 0vh) scale(1); } 33% { transform: translate(25vw, 15vh) scale(1.2); } 66% { transform: translate(-15vw, 25vh) scale(0.9); } 100% { transform: translate(0vw, 0vh) scale(1); } }
         @keyframes roam-2 { 0% { transform: translate(0vw, 0vh) scale(1); } 33% { transform: translate(-25vw, -20vh) scale(1.1); } 66% { transform: translate(20vw, -15vh) scale(0.8); } 100% { transform: translate(0vw, 0vh) scale(1); } }
         .animate-roam-1 { animation: roam-1 20s infinite alternate ease-in-out; }
         .animate-roam-2 { animation: roam-2 25s infinite alternate ease-in-out; }
     </style>
 </head>
-<body class="bg-black text-slate-100 font-sans antialiased selection:bg-purple-500 selection:text-white relative overflow-x-hidden opacity-0 transition-opacity duration-500 ease-in-out">
-    <!-- FOND PARALLAXE SOMBRE/VIOLET -->
-    <div id="parallax-wrapper" class="fixed inset-0 w-full h-full z-[-1] overflow-hidden bg-black pointer-events-none">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-900/10 blur-[150px] rounded-full"></div>
-        <div class="absolute top-[10%] left-[10%] w-[600px] h-[600px] bg-purple-600/15 rounded-full mix-blend-screen filter blur-[120px] animate-roam-1"></div>
-        <div class="absolute bottom-[10%] right-[10%] w-[700px] h-[700px] bg-indigo-700/15 rounded-full mix-blend-screen filter blur-[150px] animate-roam-2"></div>
+<body class="bg-slate-50 dark:bg-black text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-purple-500 selection:text-white relative overflow-x-hidden opacity-0 transition-opacity duration-500 ease-in-out">
+
+    <!-- FOND PARALLAXE -->
+    <div id="parallax-wrapper" class="fixed inset-0 w-full h-full z-[-1] overflow-hidden pointer-events-none">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-400/20 dark:bg-purple-900/10 blur-[150px] rounded-full"></div>
+        <div class="absolute top-[10%] left-[10%] w-[600px] h-[600px] bg-purple-500/20 dark:bg-purple-600/15 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[120px] animate-roam-1"></div>
+        <div class="absolute bottom-[10%] right-[10%] w-[700px] h-[700px] bg-indigo-500/20 dark:bg-indigo-700/15 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[150px] animate-roam-2"></div>
     </div>
 
     <!-- En-tête -->
-    <header class="sticky top-0 z-50 bg-black/40 backdrop-blur-xl border-b border-white/5 transition-all">
+    <header class="sticky top-0 z-50 bg-white/70 dark:bg-black/40 backdrop-blur-xl border-b border-slate-200 dark:border-white/5 transition-all">
         <nav class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between text-xs tracking-wide">
-            <a href="index.html" class="font-semibold text-white hover:text-purple-400 transition">NOA.DEV</a>
-            <div class="flex gap-8 font-medium text-slate-400">
-                <a href="index.html" class="hover:text-white transition">Accueil</a>
-                <a href="passions.html" class="text-white font-semibold transition">Passions</a>
-                <a href="projets.html" class="hover:text-white transition">Projets & IA</a>
+            <a href="index.html" class="font-semibold text-slate-900 dark:text-white hover:text-purple-600 dark:hover:text-purple-400 transition">NOA.DEV</a>
+            <div class="flex items-center gap-8 font-medium text-slate-600 dark:text-slate-400">
+                <a href="index.html" class="hover:text-slate-900 dark:hover:text-white transition">Accueil</a>
+                <a href="passions.html" class="text-slate-900 dark:text-white font-semibold transition">Passions</a>
+                <a href="projets.html" class="hover:text-slate-900 dark:hover:text-white transition">Projets & IA</a>
+                
+                <!-- BOUTON THÈME -->
+                <button id="theme-toggle" class="p-2 rounded-full bg-slate-200 dark:bg-zinc-800 hover:bg-slate-300 dark:hover:bg-zinc-700 transition" title="Changer de thème">
+                    <span id="theme-icon" class="text-sm">🌞</span>
+                </button>
             </div>
         </nav>
     </header>
@@ -36,131 +53,147 @@
     <main class="max-w-5xl mx-auto px-6 py-20 space-y-24">
         <!-- Titre -->
         <div class="text-center max-w-2xl mx-auto space-y-4 reveal-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out">
-            <span class="text-purple-400 text-xs font-bold uppercase tracking-widest">Performance & Maîtrise</span>
-            <h1 class="text-5xl md:text-7xl font-black tracking-tight text-white">L'Enduro Moto.</h1>
-            <p class="text-slate-400 text-base md:text-lg font-light leading-relaxed">
+            <span class="text-purple-600 dark:text-purple-400 text-xs font-bold uppercase tracking-widest">Performance & Maîtrise</span>
+            <h1 class="text-5xl md:text-7xl font-black tracking-tight text-slate-900 dark:text-white">L'Enduro Moto.</h1>
+            <p class="text-slate-600 dark:text-slate-400 text-base md:text-lg font-light leading-relaxed">
                 Précision, anticipation et dépassement de soi. Quand le terrain dicte les règles, chaque trajectoire compte.
             </p>
             <div class="pt-4">
-                <a href="https://www.youtube.com/channel/UCwe4tvImhK117oU1BbU0gpA" target="_blank" class="magnetic-btn inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black font-semibold text-xs tracking-wide hover:bg-purple-500 hover:text-white transition duration-300 shadow-xl cursor-pointer">
+                <a href="https://www.youtube.com/channel/UCwe4tvImhK117oU1BbU0gpA" target="_blank" class="magnetic-btn inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 dark:bg-white text-white dark:text-black font-semibold text-xs tracking-wide hover:bg-purple-600 dark:hover:bg-purple-500 hover:text-white transition duration-300 shadow-xl cursor-pointer">
                     <span>Explorer la chaîne YouTube</span>
                     <span>&rarr;</span>
                 </a>
             </div>
         </div>
 
-        <!-- Galerie -->
-        <div class="space-y-8">
-            <div class="border-b border-white/10 pb-4 reveal-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out">
-                <h2 class="text-xl font-bold tracking-tight text-white">Galerie Officielle</h2>
-                <p class="text-xs text-slate-400 mt-1">Cliquez sur une image pour l'agrandir.</p>
+        <!-- Galerie en Grille -->
+        <div class="space-y-8 pb-12">
+            <div class="border-b border-slate-200 dark:border-white/10 pb-4 reveal-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out">
+                <h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Galerie Officielle</h2>
+                <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">Cliquez sur une image pour l'agrandir.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- AJOUT de "tilt-card" sur chaque div photo -->
-                <div class="tilt-card bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-2xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out cursor-pointer" style="transition-delay: 100ms;">
-                    <div class="h-80 rounded-2xl overflow-hidden bg-black relative group">
-                        <img src="assets/img/enduro-1.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-500 pointer-events-none"></div>
+                <!-- Carte 1 -->
+                <div class="tilt-card bg-white/60 dark:bg-zinc-900/40 backdrop-blur-sm border border-slate-200 dark:border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-xl dark:shadow-2xl cursor-pointer group reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 100ms;">
+                    <div class="h-80 rounded-2xl overflow-hidden bg-slate-100 dark:bg-black relative">
+                        <img src="assets/img/enduro-1.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/10 dark:bg-black/20 group-hover:bg-transparent transition duration-500 pointer-events-none"></div>
                     </div>
-                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400"><span class="font-medium text-slate-200">Session Technique #01</span><span>Full Frame</span></div>
+                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-600 dark:text-slate-400"><span class="font-medium text-slate-900 dark:text-slate-200">Session Technique #01</span><span>Full Frame</span></div>
                 </div>
 
-                <div class="tilt-card bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-2xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out cursor-pointer" style="transition-delay: 200ms;">
-                    <div class="h-80 rounded-2xl overflow-hidden bg-black relative group">
-                        <img src="assets/img/enduro-2.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-500 pointer-events-none"></div>
+                <!-- Carte 2 -->
+                <div class="tilt-card bg-white/60 dark:bg-zinc-900/40 backdrop-blur-sm border border-slate-200 dark:border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-xl dark:shadow-2xl cursor-pointer group reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 200ms;">
+                    <div class="h-80 rounded-2xl overflow-hidden bg-slate-100 dark:bg-black relative">
+                        <img src="assets/img/enduro-2.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/10 dark:bg-black/20 group-hover:bg-transparent transition duration-500 pointer-events-none"></div>
                     </div>
-                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400"><span class="font-medium text-slate-200">Tracée & Poussière</span><span>Action Shot</span></div>
+                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-600 dark:text-slate-400"><span class="font-medium text-slate-900 dark:text-slate-200">Tracée & Poussière</span><span>Action Shot</span></div>
                 </div>
 
-                <div class="tilt-card bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-2xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out cursor-pointer" style="transition-delay: 100ms;">
-                    <div class="h-80 rounded-2xl overflow-hidden bg-black relative group">
-                        <img src="assets/img/enduro-3.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-500 pointer-events-none"></div>
+                <!-- Carte 3 -->
+                <div class="tilt-card bg-white/60 dark:bg-zinc-900/40 backdrop-blur-sm border border-slate-200 dark:border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-xl dark:shadow-2xl cursor-pointer group reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 100ms;">
+                    <div class="h-80 rounded-2xl overflow-hidden bg-slate-100 dark:bg-black relative">
+                        <img src="assets/img/enduro-3.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/10 dark:bg-black/20 group-hover:bg-transparent transition duration-500 pointer-events-none"></div>
                     </div>
-                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400"><span class="font-medium text-slate-200">Regard & Anticipation</span><span>Focus</span></div>
+                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-600 dark:text-slate-400"><span class="font-medium text-slate-900 dark:text-slate-200">Regard & Anticipation</span><span>Focus</span></div>
                 </div>
 
-                <div class="tilt-card bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-2xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out cursor-pointer" style="transition-delay: 200ms;">
-                    <div class="h-80 rounded-2xl overflow-hidden bg-black relative group">
-                        <img src="assets/img/enduro-4.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-500 pointer-events-none"></div>
+                <!-- Carte 4 -->
+                <div class="tilt-card bg-white/60 dark:bg-zinc-900/40 backdrop-blur-sm border border-slate-200 dark:border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-xl dark:shadow-2xl cursor-pointer group reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 200ms;">
+                    <div class="h-80 rounded-2xl overflow-hidden bg-slate-100 dark:bg-black relative">
+                        <img src="assets/img/enduro-4.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/10 dark:bg-black/20 group-hover:bg-transparent transition duration-500 pointer-events-none"></div>
                     </div>
-                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400"><span class="font-medium text-slate-200">Pilotage & Équilibre</span><span>Ride</span></div>
+                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-600 dark:text-slate-400"><span class="font-medium text-slate-900 dark:text-slate-200">Pilotage & Équilibre</span><span>Ride</span></div>
                 </div>
 
-                <div class="tilt-card bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-2xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out cursor-pointer" style="transition-delay: 100ms;">
-                    <div class="h-80 rounded-2xl overflow-hidden bg-black relative group">
-                        <img src="assets/img/enduro-5.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-500 pointer-events-none"></div>
+                <!-- Carte 5 -->
+                <div class="tilt-card bg-white/60 dark:bg-zinc-900/40 backdrop-blur-sm border border-slate-200 dark:border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-xl dark:shadow-2xl cursor-pointer group reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 100ms;">
+                    <div class="h-80 rounded-2xl overflow-hidden bg-slate-100 dark:bg-black relative">
+                        <img src="assets/img/enduro-5.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/10 dark:bg-black/20 group-hover:bg-transparent transition duration-500 pointer-events-none"></div>
                     </div>
-                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400"><span class="font-medium text-slate-200">Posture & Style</span><span>Portrait</span></div>
+                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-600 dark:text-slate-400"><span class="font-medium text-slate-900 dark:text-slate-200">Posture & Style</span><span>Portrait</span></div>
                 </div>
 
-                <div class="tilt-card bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-2xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out cursor-pointer" style="transition-delay: 200ms;">
-                    <div class="h-80 rounded-2xl overflow-hidden bg-black relative group">
-                        <img src="assets/img/enduro-6.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-500 pointer-events-none"></div>
+                <!-- Carte 6 -->
+                <div class="tilt-card bg-white/60 dark:bg-zinc-900/40 backdrop-blur-sm border border-slate-200 dark:border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-xl dark:shadow-2xl cursor-pointer group reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 200ms;">
+                    <div class="h-80 rounded-2xl overflow-hidden bg-slate-100 dark:bg-black relative">
+                        <img src="assets/img/enduro-6.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/10 dark:bg-black/20 group-hover:bg-transparent transition duration-500 pointer-events-none"></div>
                     </div>
-                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400"><span class="font-medium text-slate-200">Virage Serré</span><span>Grip</span></div>
+                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-600 dark:text-slate-400"><span class="font-medium text-slate-900 dark:text-slate-200">Virage Serré</span><span>Grip</span></div>
                 </div>
 
-                <div class="tilt-card bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-2xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out cursor-pointer" style="transition-delay: 100ms;">
-                    <div class="h-80 rounded-2xl overflow-hidden bg-black relative group">
-                        <img src="assets/img/enduro-7.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-500 pointer-events-none"></div>
+                <!-- Carte 7 -->
+                <div class="tilt-card bg-white/60 dark:bg-zinc-900/40 backdrop-blur-sm border border-slate-200 dark:border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-xl dark:shadow-2xl cursor-pointer group reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 100ms;">
+                    <div class="h-80 rounded-2xl overflow-hidden bg-slate-100 dark:bg-black relative">
+                        <img src="assets/img/enduro-7.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/10 dark:bg-black/20 group-hover:bg-transparent transition duration-500 pointer-events-none"></div>
                     </div>
-                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400"><span class="font-medium text-slate-200">Pause Panorama</span><span>Break</span></div>
+                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-600 dark:text-slate-400"><span class="font-medium text-slate-900 dark:text-slate-200">Pause Panorama</span><span>Break</span></div>
                 </div>
 
-                <div class="tilt-card bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-2xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out cursor-pointer" style="transition-delay: 200ms;">
-                    <div class="h-80 rounded-2xl overflow-hidden bg-black relative group">
-                        <img src="assets/img/enduro-8.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-500 pointer-events-none"></div>
+                <!-- Carte 8 -->
+                <div class="tilt-card bg-white/60 dark:bg-zinc-900/40 backdrop-blur-sm border border-slate-200 dark:border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-xl dark:shadow-2xl cursor-pointer group reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 200ms;">
+                    <div class="h-80 rounded-2xl overflow-hidden bg-slate-100 dark:bg-black relative">
+                        <img src="assets/img/enduro-8.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/10 dark:bg-black/20 group-hover:bg-transparent transition duration-500 pointer-events-none"></div>
                     </div>
-                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400"><span class="font-medium text-slate-200">Lumière Dorée</span><span>Golden Hour</span></div>
+                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-600 dark:text-slate-400"><span class="font-medium text-slate-900 dark:text-slate-200">Lumière Dorée</span><span>Golden Hour</span></div>
                 </div>
 
-                <div class="tilt-card bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-2xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out cursor-pointer" style="transition-delay: 100ms;">
-                    <div class="h-80 rounded-2xl overflow-hidden bg-black relative group">
-                        <img src="assets/img/enduro-9.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-500 pointer-events-none"></div>
+                <!-- Carte 9 -->
+                <div class="tilt-card bg-white/60 dark:bg-zinc-900/40 backdrop-blur-sm border border-slate-200 dark:border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-xl dark:shadow-2xl cursor-pointer group reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 100ms;">
+                    <div class="h-80 rounded-2xl overflow-hidden bg-slate-100 dark:bg-black relative">
+                        <img src="assets/img/enduro-9.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/10 dark:bg-black/20 group-hover:bg-transparent transition duration-500 pointer-events-none"></div>
                     </div>
-                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400"><span class="font-medium text-slate-200">Prêt au Départ</span><span>Équipement</span></div>
+                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-600 dark:text-slate-400"><span class="font-medium text-slate-900 dark:text-slate-200">Prêt au Départ</span><span>Équipement</span></div>
                 </div>
 
-                <div class="tilt-card bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-2xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out cursor-pointer" style="transition-delay: 200ms;">
-                    <div class="h-80 rounded-2xl overflow-hidden bg-black relative group">
-                        <img src="assets/img/enduro-10.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-500 pointer-events-none"></div>
+                <!-- Carte 10 -->
+                <div class="tilt-card bg-white/60 dark:bg-zinc-900/40 backdrop-blur-sm border border-slate-200 dark:border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-xl dark:shadow-2xl cursor-pointer group reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 200ms;">
+                    <div class="h-80 rounded-2xl overflow-hidden bg-slate-100 dark:bg-black relative">
+                        <img src="assets/img/enduro-10.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/10 dark:bg-black/20 group-hover:bg-transparent transition duration-500 pointer-events-none"></div>
                     </div>
-                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400"><span class="font-medium text-slate-200">Machine Prête</span><span>Hardware</span></div>
+                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-600 dark:text-slate-400"><span class="font-medium text-slate-900 dark:text-slate-200">Machine Prête</span><span>Hardware</span></div>
                 </div>
 
-                <div class="tilt-card bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-2xl md:col-span-2 reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out cursor-pointer">
-                    <div class="h-96 rounded-2xl overflow-hidden bg-black relative group">
-                        <img src="assets/img/enduro-11.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-500 pointer-events-none"></div>
+                <!-- Carte 11 (Pleine largeur sur la dernière ligne) -->
+                <div class="tilt-card bg-white/60 dark:bg-zinc-900/40 backdrop-blur-sm border border-slate-200 dark:border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-xl dark:shadow-2xl md:col-span-2 cursor-pointer group reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 100ms;">
+                    <div class="h-96 rounded-2xl overflow-hidden bg-slate-100 dark:bg-black relative">
+                        <img src="assets/img/enduro-11.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/10 dark:bg-black/20 group-hover:bg-transparent transition duration-500 pointer-events-none"></div>
                     </div>
-                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400"><span class="font-medium text-slate-200">L'Esprit Enduro</span><span>Ultimate Shot</span></div>
+                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-600 dark:text-slate-400"><span class="font-medium text-slate-900 dark:text-slate-200">L'Esprit Enduro</span><span>Ultimate Shot</span></div>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="border-t border-white/5 py-12 text-center text-xs text-slate-600 mt-32 bg-black">
+    <footer class="border-t border-slate-200 dark:border-white/10 py-12 text-center text-xs text-slate-500 mt-32 bg-slate-50 dark:bg-black transition-colors">
         <p>&copy; 2026 Noa. Tous droits réservés.</p>
     </footer>
 
-    <!-- Modale Lightbox -->
+    <!-- MODALE LIGHTBOX (Reste sombre pour le focus) -->
     <div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-xl opacity-0 transition-opacity duration-300">
         <button id="lightbox-close" class="absolute top-6 right-8 text-white/50 hover:text-white transition text-5xl font-light cursor-pointer">&times;</button>
         <img id="lightbox-img" src="" alt="Zoom" class="max-h-[90vh] max-w-[90vw] rounded-2xl shadow-2xl object-contain scale-95 transition-transform duration-300">
     </div>
 
-    <!-- Scripts -->
+    <!-- SCRIPTS INTÉGRÉS -->
     <script>
+        // Init thème icon
+        document.addEventListener('DOMContentLoaded', () => {
+            const tIcon = document.getElementById('theme-icon');
+            if(tIcon) tIcon.textContent = document.documentElement.classList.contains('dark') ? '🌞' : '🌙';
+        });
+
         // Lightbox
         const lightbox = document.getElementById('lightbox'), lightboxImg = document.getElementById('lightbox-img'), lightboxClose = document.getElementById('lightbox-close');
         document.querySelectorAll('.gallery-img').forEach(img => {
@@ -177,7 +210,7 @@
         lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeModal(); });
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) closeModal(); });
 
-        // Apparition au Scroll
+        // Scroll Reveal
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
