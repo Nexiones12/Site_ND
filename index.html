@@ -3,96 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noa | Portfolio & Projets ASRC</title>
+    <title>Noa | Portfolio - Administrateur Systèmes, Réseaux & Cloud (ASRC)</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-slate-950">
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-slate-950 relative overflow-x-hidden">
+
+    <!-- Effet de lueur d'arrière-plan moderne -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
     <!-- En-tête / Navigation -->
-    <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur border-b border-slate-800">
-        <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="index.html" class="text-lg font-bold text-cyan-400 tracking-wider">NOA.DEV</a>
-            <div class="flex gap-6 text-sm font-medium">
+    <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
+        <nav class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="text-xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">NOA.DEV</a>
+            <div class="flex gap-8 text-sm font-medium">
                 <a href="index.html" class="text-cyan-400 hover:text-cyan-300 transition">Accueil</a>
-                <a href="projets.html" class="text-slate-400 hover:text-cyan-300 transition">Projets</a>
+                <a href="projets.html" class="text-slate-400 hover:text-cyan-300 transition">Projets & IA</a>
             </div>
         </nav>
     </header>
 
-    <!-- Section Hero / Présentation -->
-    <main class="max-w-6xl mx-auto px-6 py-16 space-y-20">
-        <section class="grid md:grid-cols-2 gap-12 items-center min-h-[60vh]">
-            <div class="space-y-6">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/50 border border-cyan-800 text-cyan-400 text-xs font-semibold">
-                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span> En alternance chez Syres Telecom
+    <!-- Section Principale / Hero & Présentation -->
+    <main class="max-w-6xl mx-auto px-6 py-16 space-y-28">
+        
+        <section class="grid md:grid-cols-12 gap-12 items-center">
+            <!-- Texte de présentation détaillé -->
+            <div class="md:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-800/60 text-cyan-400 text-xs font-semibold shadow-inner">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span> En alternance chez Syres Telecom • Objectif Master
                 </div>
-                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">
-                    Salut, moi c'est <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Noa</span>
+                <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-tight">
+                    Architecte de terrain & <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">futur ingénieur</span>
                 </h1>
                 <p class="text-slate-400 text-base md:text-lg leading-relaxed">
-                    Étudiant en <strong class="text-slate-200">3ème année ASRC</strong> (Administration des Systèmes, Réseaux et Cloud). Passionné par l'infrastructure, le déploiement d'outils de supervision et de sécurité, et le management de projet, en route vers un Master. Bienvenue sur mon portfolio !
+                    Salut ! Moi c'est <strong class="text-slate-200">Noa</strong>. Actuellement en <strong class="text-slate-200">3ème année ASRC</strong> (Administration des Systèmes, Réseaux et Cloud), je tire ma force d'un parcours technique complet (Bac Pro SN RISC, BTS CIEL). Passionné par le hardware de précision, le déploiement d'infrastructures from scratch et la gestion de projets, je combine expertise technique et fort sens relationnel pour mener les équipes vers la réussite.
                 </p>
                 <div class="flex flex-wrap gap-4 pt-2">
-                    <a href="https://github.com" target="_blank" class="px-5 py-2.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-cyan-500 text-sm font-semibold transition flex items-center gap-2">
-                        GitHub
+                    <a href="https://github.com" target="_blank" class="px-6 py-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500 text-sm font-bold transition shadow-lg flex items-center gap-2 group">
+                        <span>GitHub</span>
+                        <span class="group-hover:translate-x-1 transition">&rarr;</span>
                     </a>
-                    <a href="https://linkedin.com" target="_blank" class="px-5 py-2.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-slate-950 text-sm font-semibold transition">
-                        LinkedIn
+                    <a href="https://linkedin.com" target="_blank" class="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-slate-950 text-sm font-bold transition shadow-lg shadow-cyan-900/20">
+                        LinkedIn Professionnel
                     </a>
                 </div>
             </div>
 
-            <!-- Bloc Cursus / CV Rapide -->
-            <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl space-y-6 shadow-xl">
-                <h2 class="text-xl font-bold border-b border-slate-800 pb-3 text-cyan-400">Mon Cursus</h2>
-                <ul class="space-y-4 text-sm">
-                    <li class="border-l-2 border-cyan-500 pl-4 space-y-1">
-                        <span class="text-xs text-cyan-400 font-semibold">Actuel</span>
-                        <h3 class="font-bold text-slate-200">3ème année ASRC</h3>
-                        <p class="text-slate-400">Alternance chez Syres Telecom</p>
+            <!-- Bloc Cursus / CV Détaillé -->
+            <div class="md:col-span-5 bg-slate-900/40 border border-slate-800/80 p-8 rounded-3xl space-y-6 backdrop-blur-sm shadow-2xl relative">
+                <div class="absolute -top-3 -right-3 px-3 py-1 bg-cyan-500 text-slate-950 font-bold text-xs rounded-full uppercase tracking-wider">Parcours</div>
+                <h2 class="text-xl font-bold border-b border-slate-800 pb-4 text-slate-200">Évolution Académique</h2>
+                <ul class="space-y-6 text-sm">
+                    <li class="border-l-2 border-cyan-400 pl-4 space-y-1.5 relative">
+                        <div class="absolute -left-[17px] top-0 w-2 h-2 rounded-full bg-cyan-400 ring-4 ring-cyan-950"></div>
+                        <span class="text-xs text-cyan-400 font-bold uppercase tracking-wider">Actuel (3ème année)</span>
+                        <h3 class="font-bold text-base text-slate-100">Bachelor ASRC</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Alternance technique chez <strong>Syres Telecom</strong>. Gestion d'infrastructures clients, déploiements avancés et préparation vers un Master.</p>
                     </li>
-                    <li class="border-l-2 border-slate-700 pl-4 space-y-1">
-                        <span class="text-xs text-slate-400 font-semibold">Avant</span>
-                        <h3 class="font-bold text-slate-200">BTS CIEL</h3>
-                        <p class="text-slate-400">Cybersécurité, Informatique et Électronique, réseaux</p>
+                    <li class="border-l-2 border-slate-700 pl-4 space-y-1.5 relative">
+                        <div class="absolute -left-[17px] top-0 w-2 h-2 rounded-full bg-slate-600"></div>
+                        <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Diplôme Supérieur</span>
+                        <h3 class="font-bold text-base text-slate-200">BTS CIEL</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Cybersécurité, Informatique et Électronique, spécialisation réseaux et systèmes.</p>
                     </li>
-                    <li class="border-l-2 border-slate-700 pl-4 space-y-1">
-                        <span class="text-xs text-slate-400 font-semibold">Lycée</span>
-                        <h3 class="font-bold text-slate-200">Bac Pro SN - Option RISC</h3>
-                        <p class="text-slate-400">Réseaux Informatiques et Systèmes Communicants</p>
+                    <li class="border-l-2 border-slate-700 pl-4 space-y-1.5 relative">
+                        <div class="absolute -left-[17px] top-0 w-2 h-2 rounded-full bg-slate-600"></div>
+                        <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Fondations</span>
+                        <h3 class="font-bold text-base text-slate-200">Bac Pro SN - Option RISC</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Réseaux Informatiques et Systèmes Communicants. Premières bases concrètes du hardware et du câblage.</p>
                     </li>
                 </ul>
             </div>
         </section>
 
-        <!-- Section Compétences & Terrain -->
-        <section class="space-y-6">
-            <h2 class="text-2xl font-bold tracking-tight text-slate-200">Expertises & Savoir-faire</h2>
+        <!-- Section Compétences & Savoir-faire Développée -->
+        <section class="space-y-10">
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <h2 class="text-3xl font-black tracking-tight text-slate-100">Expertises & Domaines de Maîtrise</h2>
+                <p class="text-slate-400 text-sm">Un profil technique complet ancré dans la réalité du terrain, complété par des compétences en leadership et en gestion d'outils de pointe.</p>
+            </div>
+
             <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-                <div class="bg-slate-900/50 border border-slate-800 p-5 rounded-xl space-y-2">
-                    <h3 class="font-bold text-cyan-400">Infrastructure & Réseaux</h3>
-                    <p class="text-slate-400 text-sm">Mise en place d'infrastructures de zéro, configuration des VLANs, paramétrage SIP (téléphonie IP) et serveurs GPO.</p>
+                <!-- Carte 1 -->
+                <div class="bg-slate-900/50 border border-slate-800/80 p-6 rounded-2xl space-y-3 hover:border-cyan-500/50 transition group">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-950/80 border border-cyan-800 flex items-center justify-center text-cyan-400 font-bold text-lg group-hover:scale-110 transition">⚡</div>
+                    <h3 class="font-bold text-lg text-slate-200">Infrastructure & Réseaux</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Conception d'architectures de zéro, paramétrage avancé des VLANs, configuration SIP (téléphonie IP) et administration de serveurs via GPO.</p>
                 </div>
-                <div class="bg-slate-900/50 border border-slate-800 p-5 rounded-xl space-y-2">
-                    <h3 class="font-bold text-cyan-400">Supervision & Sécurité</h3>
-                    <p class="text-slate-400 text-sm">Déploiement d'outils de supervision et de sécurité avancés, sécurisation des environnements et anticipation des incidents.</p>
+
+                <!-- Carte 2 -->
+                <div class="bg-slate-900/50 border border-slate-800/80 p-6 rounded-2xl space-y-3 hover:border-cyan-500/50 transition group">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-950/80 border border-cyan-800 flex items-center justify-center text-cyan-400 font-bold text-lg group-hover:scale-110 transition">🛡️</div>
+                    <h3 class="font-bold text-lg text-slate-200">Supervision & Sécurité</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Déploiement d'outils de monitoring robustes, sécurisation proactive des environnements réseaux et anticipation des pannes critiques.</p>
                 </div>
-                <div class="bg-slate-900/50 border border-slate-800 p-5 rounded-xl space-y-2">
-                    <h3 class="font-bold text-cyan-400">Hardware & Dépannage Terrain</h3>
-                    <p class="text-slate-400 text-sm">Montage PC de précision, intervention sur site, diagnostic rapide et recherche de pannes complexes en situation réelle.</p>
+
+                <!-- Carte 3 -->
+                <div class="bg-slate-900/50 border border-slate-800/80 p-6 rounded-2xl space-y-3 hover:border-cyan-500/50 transition group">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-950/80 border border-cyan-800 flex items-center justify-center text-cyan-400 font-bold text-lg group-hover:scale-110 transition">🔧</div>
+                    <h3 class="font-bold text-lg text-slate-200">Hardware & Dépannage</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Expert en montage PC de précision et cable management irréprochable. Intervention rapide sur site, diagnostic et résolution de pannes complexes.</p>
                 </div>
-                <div class="bg-slate-900/50 border border-slate-800 p-5 rounded-xl space-y-2 sm:col-span-2 md:col-span-3">
-                    <h3 class="font-bold text-cyan-400">Leadership & Relation Client</h3>
-                    <p class="text-slate-400 text-sm">Capacité à diriger, organiser les tâches et fédérer une équipe. Excellent relationnel et écoute active pour cerner les besoins précis des clients lors des interventions.</p>
+
+                <!-- Carte 4 (Large) -->
+                <div class="bg-slate-900/50 border border-slate-800/80 p-6 rounded-2xl space-y-3 sm:col-span-2 md:col-span-3 hover:border-cyan-500/50 transition group">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-950/80 border border-cyan-800 flex items-center justify-center text-cyan-400 font-bold text-lg group-hover:scale-110 transition">👥</div>
+                    <h3 class="font-bold text-lg text-slate-200">Leadership, Organisation & Relation Client</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Doté d'un excellent relationnel et d'un naturel souriant, je sais capter instantanément les besoins profonds des clients lors des interventions. Capacité naturelle à diriger, organiser les tâches, structurer les projets et fédérer les équipes techniques pour atteindre les objectifs avec efficacité.
+                    </p>
                 </div>
             </div>
         </section>
+
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800 py-8 text-center text-xs text-slate-500 mt-20">
-        <p>&copy; 2026 Noa - Tous droits réservés.</p>
+    <footer class="border-t border-slate-800/80 py-10 text-center text-xs text-slate-500 mt-32 bg-slate-950/40">
+        <p>&copy; 2026 Noa - Portfolio ASRC & Projets. Tous droits réservés.</p>
     </footer>
 
 </body>
