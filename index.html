@@ -1,5 +1,25 @@
 <!DOCTYPE html>
 <html lang="fr" class="scroll-smooth">
+    <style>
+        /* Masquer le curseur par défaut sur PC */
+        @media (pointer: fine) { body { cursor: none; } a, button, .cursor-pointer { cursor: none !important; } }
+        /* Style du nouveau curseur */
+        #cursor-dot {
+            width: 8px; height: 8px; background: white; border-radius: 50%;
+            position: fixed; top: 0; left: 0; transform: translate(-50%, -50%);
+            pointer-events: none; z-index: 9999;
+        }
+        #cursor-outline {
+            width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.5); border-radius: 50%;
+            position: fixed; top: 0; left: 0; transform: translate(-50%, -50%);
+            pointer-events: none; z-index: 9998; transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        /* Effet quand on survole un lien */
+        #cursor-outline.expand {
+            width: 60px; height: 60px; background: rgba(255, 255, 255, 0.1); border-color: white;
+        }
+    </style>
+</head>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -234,3 +254,7 @@
     </script>
 </body>
 </html>
+
+<!-- Script global (Curseur & Parallaxe) -->
+    <script src="assets/js/main.js"></script>
+</body>
