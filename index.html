@@ -1,32 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr" class="scroll-smooth">
-    <style>
-        /* Masquer le curseur par défaut sur PC */
-        @media (pointer: fine) { body { cursor: none; } a, button, .cursor-pointer { cursor: none !important; } }
-        /* Style du nouveau curseur */
-        #cursor-dot {
-            width: 8px; height: 8px; background: white; border-radius: 50%;
-            position: fixed; top: 0; left: 0; transform: translate(-50%, -50%);
-            pointer-events: none; z-index: 9999;
-        }
-        #cursor-outline {
-            width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.5); border-radius: 50%;
-            position: fixed; top: 0; left: 0; transform: translate(-50%, -50%);
-            pointer-events: none; z-index: 9998; transition: width 0.2s, height 0.2s, background-color 0.2s;
-        }
-        /* Effet quand on survole un lien */
-        #cursor-outline.expand {
-            width: 60px; height: 60px; background: rgba(255, 255, 255, 0.1); border-color: white;
-        }
-    </style>
-</head>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noa | Portfolio - Administrateur Systèmes, Réseaux & Cloud (ASRC)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Animation du fond façon vague/blob */
+        /* Animations fond blobs */
         @keyframes blob {
             0% { transform: translate(0px, 0px) scale(1); }
             33% { transform: translate(30px, -50px) scale(1.1); }
@@ -40,17 +20,14 @@
 </head>
 <body class="bg-black text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-white relative overflow-x-hidden">
 
-    <!-- FOND ANIMÉ STYLE APPLE (Vagues/Blobs) -->
-    <div class="fixed inset-0 w-full h-full z-[-1] overflow-hidden">
-        <!-- Cercle Cyan -->
+    <!-- FOND PARALLAXE -->
+    <div id="parallax-wrapper" class="fixed inset-0 w-full h-full z-[-1] overflow-hidden pointer-events-none">
         <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-cyan-600/20 rounded-full mix-blend-screen filter blur-[120px] animate-blob"></div>
-        <!-- Cercle Bleu -->
         <div class="absolute top-[20%] right-[-10%] w-[600px] h-[600px] bg-blue-600/15 rounded-full mix-blend-screen filter blur-[150px] animate-blob animation-delay-2000"></div>
-        <!-- Cercle Violet -->
         <div class="absolute bottom-[-20%] left-[20%] w-[700px] h-[700px] bg-indigo-600/15 rounded-full mix-blend-screen filter blur-[150px] animate-blob animation-delay-4000"></div>
     </div>
 
-    <!-- En-tête / Navigation -->
+    <!-- En-tête -->
     <header class="sticky top-0 z-50 bg-black/50 backdrop-blur-xl border-b border-white/10 transition-all">
         <nav class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between text-xs tracking-wide">
             <a href="index.html" class="font-semibold text-white hover:text-cyan-400 transition">NOA.DEV</a>
@@ -63,7 +40,7 @@
     </header>
 
     <main class="max-w-5xl mx-auto px-6 py-20 space-y-28">
-        
+        <!-- Hero Section -->
         <section class="grid md:grid-cols-12 gap-12 items-center reveal-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out">
             <div class="md:col-span-7 space-y-6">
                 <div class="flex items-center gap-4">
@@ -94,7 +71,7 @@
                 </div>
             </div>
 
-            <!-- Bloc Cursus -->
+            <!-- Cursus -->
             <div class="md:col-span-5 bg-zinc-900/50 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] space-y-6 shadow-2xl hover:scale-[1.02] hover:border-white/20 transition duration-500 cursor-default group">
                 <div class="flex justify-between items-center border-b border-white/10 pb-4">
                     <h2 class="text-lg font-bold tracking-tight text-white">Cursus</h2>
@@ -120,7 +97,7 @@
             </div>
         </section>
 
-        <!-- Section Compétences avec Apparitions au scroll -->
+        <!-- Expertises -->
         <section class="space-y-12">
             <div class="text-center max-w-2xl mx-auto space-y-2 reveal-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out">
                 <h2 class="text-3xl font-bold tracking-tight text-white">Expertises.</h2>
@@ -128,7 +105,6 @@
             </div>
 
             <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-                <!-- Cartes avec animation de scroll en cascade -->
                 <div class="expertise-card cursor-pointer bg-zinc-900/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 hover:scale-[1.03] hover:bg-zinc-800/80 hover:border-cyan-500/50 transition duration-500 group shadow-xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 100ms;" data-id="infra">
                     <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 transition duration-500">⚡</div>
                     <h3 class="font-bold text-white tracking-tight">Infrastructure & Réseaux</h3>
@@ -154,19 +130,17 @@
                     <div class="w-12 h-12 shrink-0 rounded-full bg-black border border-white/10 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 transition duration-500">👥</div>
                     <div class="flex-1">
                         <h3 class="font-bold text-white tracking-tight">Leadership & Relation Client</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mt-2">Excellent relationnel, écoute active lors des interventions pour cerner les besoins. Capacité naturelle à diriger, organiser les tâches et fédérer les équipes techniques.</p>
+                        <p class="text-slate-400 text-sm leading-relaxed mt-2">Excellent relationnel, écoute active pour cerner les besoins. Capacité à diriger et fédérer les équipes.</p>
                     </div>
                     <div class="text-cyan-400 text-sm font-semibold opacity-0 group-hover:opacity-100 transition duration-300 shrink-0">Voir les détails &rarr;</div>
                 </div>
             </div>
         </section>
 
-        <!-- Section Objectifs -->
+        <!-- Objectifs -->
         <section class="pt-10 reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out">
             <div class="bg-gradient-to-br from-zinc-900 via-black to-cyan-950/40 border border-white/10 p-10 md:p-14 rounded-[2.5rem] relative overflow-hidden group hover:border-cyan-500/30 transition duration-700 shadow-2xl">
-                <!-- Cercle de lumière flou en fond (réagit au survol) -->
                 <div class="absolute top-[-50%] right-[-10%] w-96 h-96 bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-cyan-500/30 transition duration-700"></div>
-                
                 <div class="relative z-10 space-y-6 max-w-3xl">
                     <div class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-2xl shadow-inner backdrop-blur-md">🇯🇵</div>
                     <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">Cap sur l'avenir.</h2>
@@ -176,19 +150,17 @@
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="border-t border-white/10 py-12 text-center text-xs text-slate-500 mt-32 bg-black">
         <p>&copy; 2026 Noa. Tous droits réservés.</p>
     </footer>
 
-    <!-- MODALE DES EXPERTISES (Inchangée) -->
+    <!-- MODALE DES EXPERTISES -->
     <div id="exp-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-md opacity-0 transition-opacity duration-300 px-4">
-        <div id="exp-modal-content" class="bg-zinc-900 border border-white/10 rounded-3xl p-8 max-w-2xl w-full shadow-2xl scale-95 transition-transform duration-300 relative overflow-hidden">
+        <div id="exp-modal-content" class="bg-zinc-900 border border-white/10 rounded-3xl p-8 max-w-2xl w-full shadow-2xl scale-95 transition-transform duration-300 relative overflow-hidden cursor-default">
             <div class="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
-            <button id="exp-close" class="absolute top-6 right-6 text-white/50 hover:text-white transition text-3xl font-light z-10">&times;</button>
-            
+            <button id="exp-close" class="absolute top-6 right-6 text-white/50 hover:text-white transition text-3xl font-light z-10 cursor-pointer">&times;</button>
             <div class="relative z-10 space-y-6">
                 <div class="flex items-center gap-4 border-b border-white/10 pb-4">
                     <div id="exp-icon" class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center text-2xl"></div>
@@ -212,9 +184,7 @@
         </div>
     </div>
 
-    <!-- SCRIPT GESTION MODALE & SCROLL REVEAL -->
     <script>
-        // 1. Script de la Modale Expertises (Inchangé)
         const expertisesData = {
             'infra': { icon: '⚡', title: 'Infrastructure & Réseaux', tasks: "Déploiement de serveurs, VLANs, SIP, et gestion GPO.", goal: "Bâtir une architecture réseau robuste et évolutive.", result: "Une infrastructure fiable et optimisée." },
             'secu': { icon: '🛡️', title: 'Supervision & Sécurité', tasks: "Monitoring proactif, analyse de logs, pare-feu.", goal: "Anticiper les pannes et garantir l'intégrité.", result: "Un réseau hermétique et une haute disponibilité." },
@@ -239,7 +209,6 @@
         modal.addEventListener('click', (e) => { if (e.target === modal) closeExpModal(); });
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeExpModal(); });
 
-        // 2. SCRIPT D'APPARITION AU SCROLL (Style Apple)
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -252,9 +221,6 @@
         }, observerOptions);
         document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
     </script>
-</body>
-</html>
-
-<!-- Script global (Curseur & Parallaxe) -->
     <script src="assets/js/main.js"></script>
 </body>
+</html>
