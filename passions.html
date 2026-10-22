@@ -3,103 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Passions & Enduro | Noa</title>
+    <title>Passions • Enduro | Noa</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-orange-500 selection:text-slate-950 relative overflow-x-hidden">
+<body class="bg-black text-slate-100 font-sans antialiased selection:bg-orange-500 selection:text-white relative overflow-x-hidden">
 
-    <!-- Effet de lueur d'arrière-plan orange/techno -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-orange-500/10 blur-[140px] rounded-full pointer-events-none -z-10"></div>
-
-    <!-- En-tête / Navigation -->
-    <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80 transition-all">
-        <nav class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="index.html" class="text-xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 hover:opacity-80 transition">NOA.DEV</a>
-            <div class="flex gap-8 text-sm font-medium items-center">
-                <a href="index.html" class="text-slate-400 hover:text-cyan-300 transition">Accueil</a>
-                <a href="passions.html" class="text-orange-400 font-semibold transition">Passions</a>
-                <a href="projets.html" class="text-slate-400 hover:text-cyan-300 transition">Projets & IA</a>
+    <!-- En-tête / Navigation style Apple (Minimaliste & Blur) -->
+    <header class="sticky top-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/10 transition-all">
+        <nav class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between text-xs tracking-wide">
+            <a href="index.html" class="font-semibold text-white hover:text-orange-400 transition">NOA.DEV</a>
+            <div class="flex gap-8 font-medium text-slate-300">
+                <a href="index.html" class="hover:text-white transition">Accueil</a>
+                <a href="passions.html" class="text-white font-semibold transition">Passions</a>
+                <a href="projets.html" class="hover:text-white transition">Projets & IA</a>
             </div>
         </nav>
     </header>
 
-    <!-- Contenu Principal : L'Enduro -->
-    <main class="max-w-6xl mx-auto px-6 py-16 space-y-16">
+    <!-- Section Hero style Apple Keynote -->
+    <main class="max-w-5xl mx-auto px-6 py-20 space-y-24">
         
         <div class="text-center max-w-2xl mx-auto space-y-4">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-950/60 border border-orange-800/60 text-orange-400 text-xs font-semibold shadow-inner">
-                <span>🏍️</span> Adrénaline & Dépassement de soi
-            </div>
-            <h1 class="text-4xl md:text-5xl font-black tracking-tight text-slate-100">L'Enduro Moto</h1>
-            <p class="text-slate-400 text-sm md:text-base leading-relaxed">
-                Quand je ne suis pas sur les réseaux ou en train de configurer des infrastructures, je ride ! L'enduro est un sport exigeant qui demande rigueur, anticipation et persévérance face aux obstacles du terrain.
+            <span class="text-orange-400 text-xs font-bold uppercase tracking-widest">Performance & Maîtrise</span>
+            <h1 class="text-5xl md:text-7xl font-black tracking-tight text-white">L'Enduro Moto.</h1>
+            <p class="text-slate-400 text-base md:text-lg font-light leading-relaxed">
+                Précision, anticipation et dépassement de soi. Quand le terrain dicte les règles, chaque trajectoire compte.
             </p>
-            <div class="pt-2">
-                <a href="https://www.youtube.com/channel/UCwe4tvImhK117oU1BbU0gpA" target="_blank" class="inline-flex items-center gap-3 px-6 py-3.5 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-sm transition shadow-lg shadow-red-900/30">
-                    <span>Voir ma chaîne YouTube Enduro</span>
+            <div class="pt-4">
+                <a href="https://www.youtube.com/channel/UCwe4tvImhK117oU1BbU0gpA" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black font-semibold text-xs tracking-wide hover:bg-orange-500 hover:text-white transition duration-300 shadow-xl">
+                    <span>Explorer la chaîne YouTube</span>
                     <span>&rarr;</span>
                 </a>
             </div>
         </div>
 
-        <!-- Galerie Photo Immersive (11 photos) -->
-        <div class="space-y-6">
-            <h2 class="text-xl font-bold border-b border-slate-800 pb-4 text-slate-200">Galerie Photos & Sessions</h2>
+        <!-- Grille de photos style "Apple Cards" (Fond sombre mat, bordures fines, effet de profondeur) -->
+        <div class="space-y-8">
+            <div class="border-b border-white/10 pb-4">
+                <h2 class="text-xl font-bold tracking-tight text-white">Galerie Officielle</h2>
+                <p class="text-xs text-slate-400 mt-1">Immersion en conditions réelles.</p>
+            </div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <!-- Photo 1 -->
-                <div class="h-64 rounded-2xl overflow-hidden border border-slate-800/80 group shadow-lg bg-slate-900">
-                    <img src="assets/img/enduro-1.jpeg" alt="Enduro Noa 1" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Carte Photo 1 -->
+                <div class="bg-zinc-900/80 border border-white/10 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-white/30 transition duration-500 shadow-2xl">
+                    <div class="h-80 rounded-2xl overflow-hidden bg-black">
+                        <img src="assets/img/enduro-1.jpeg" alt="Enduro Noa" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
+                    </div>
+                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400">
+                        <span class="font-medium text-slate-200">Session Technique #01</span>
+                        <span>Full Frame</span>
+                    </div>
                 </div>
-                <!-- Photo 2 -->
-                <div class="h-64 rounded-2xl overflow-hidden border border-slate-800/80 group shadow-lg bg-slate-900">
-                    <img src="assets/img/enduro-2.jpeg" alt="Enduro Noa 2" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+
+                <!-- Carte Photo 2 -->
+                <div class="bg-zinc-900/80 border border-white/10 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-white/30 transition duration-500 shadow-2xl">
+                    <div class="h-80 rounded-2xl overflow-hidden bg-black">
+                        <img src="assets/img/enduro-2.jpeg" alt="Enduro Noa" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
+                    </div>
+                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400">
+                        <span class="font-medium text-slate-200">Tracée & Poussière</span>
+                        <span>Action Shot</span>
+                    </div>
                 </div>
-                <!-- Photo 3 -->
-                <div class="h-64 rounded-2xl overflow-hidden border border-slate-800/80 group shadow-lg bg-slate-900">
-                    <img src="assets/img/enduro-3.jpeg" alt="Enduro Noa 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+
+                <!-- Carte Photo 3 -->
+                <div class="bg-zinc-900/80 border border-white/10 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-white/30 transition duration-500 shadow-2xl">
+                    <div class="h-80 rounded-2xl overflow-hidden bg-black">
+                        <img src="assets/img/enduro-3.jpeg" alt="Enduro Noa" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
+                    </div>
+                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400">
+                        <span class="font-medium text-slate-200">Regard & Anticipation</span>
+                        <span>Focus</span>
+                    </div>
                 </div>
-                <!-- Photo 4 -->
-                <div class="h-64 rounded-2xl overflow-hidden border border-slate-800/80 group shadow-lg bg-slate-900">
-                    <img src="assets/img/enduro-4.jpeg" alt="Enduro Noa 4" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+
+                <!-- Carte Photo 4 -->
+                <div class="bg-zinc-900/80 border border-white/10 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-white/30 transition duration-500 shadow-2xl">
+                    <div class="h-80 rounded-2xl overflow-hidden bg-black">
+                        <img src="assets/img/enduro-4.jpeg" alt="Enduro Noa" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
+                    </div>
+                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400">
+                        <span class="font-medium text-slate-200">Pilotage & Équilibre</span>
+                        <span>Ride</span>
+                    </div>
                 </div>
-                <!-- Photo 5 -->
-                <div class="h-64 rounded-2xl overflow-hidden border border-slate-800/80 group shadow-lg bg-slate-900">
-                    <img src="assets/img/enduro-5.jpeg" alt="Enduro Noa 5" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+
+                <!-- Carte Photo 5 -->
+                <div class="bg-zinc-900/80 border border-white/10 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-white/30 transition duration-500 shadow-2xl">
+                    <div class="h-80 rounded-2xl overflow-hidden bg-black">
+                        <img src="assets/img/enduro-5.jpeg" alt="Enduro Noa" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
+                    </div>
+                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400">
+                        <span class="font-medium text-slate-200">Posture & Style</span>
+                        <span>Portrait</span>
+                    </div>
                 </div>
-                <!-- Photo 6 -->
-                <div class="h-64 rounded-2xl overflow-hidden border border-slate-800/80 group shadow-lg bg-slate-900">
-                    <img src="assets/img/enduro-6.jpeg" alt="Enduro Noa 6" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+
+                <!-- Carte Photo 6 -->
+                <div class="bg-zinc-900/80 border border-white/10 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-white/30 transition duration-500 shadow-2xl">
+                    <div class="h-80 rounded-2xl overflow-hidden bg-black">
+                        <img src="assets/img/enduro-6.jpeg" alt="Enduro Noa" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
+                    </div>
+                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400">
+                        <span class="font-medium text-slate-200">Virage Serré</span>
+                        <span>Grip</span>
+                    </div>
                 </div>
-                <!-- Photo 7 -->
-                <div class="h-64 rounded-2xl overflow-hidden border border-slate-800/80 group shadow-lg bg-slate-900">
-                    <img src="assets/img/enduro-7.jpeg" alt="Enduro Noa 7" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+
+                <!-- Carte Photo 7 -->
+                <div class="bg-zinc-900/80 border border-white/10 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-white/30 transition duration-500 shadow-2xl">
+                    <div class="h-80 rounded-2xl overflow-hidden bg-black">
+                        <img src="assets/img/enduro-7.jpeg" alt="Enduro Noa" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
+                    </div>
+                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400">
+                        <span class="font-medium text-slate-200">Pause Panorama</span>
+                        <span>Break</span>
+                    </div>
                 </div>
-                <!-- Photo 8 -->
-                <div class="h-64 rounded-2xl overflow-hidden border border-slate-800/80 group shadow-lg bg-slate-900">
-                    <img src="assets/img/enduro-8.jpeg" alt="Enduro Noa 8" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+
+                <!-- Carte Photo 8 -->
+                <div class="bg-zinc-900/80 border border-white/10 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-white/30 transition duration-500 shadow-2xl">
+                    <div class="h-80 rounded-2xl overflow-hidden bg-black">
+                        <img src="assets/img/enduro-8.jpeg" alt="Enduro Noa" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
+                    </div>
+                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400">
+                        <span class="font-medium text-slate-200">Lumière Dorée</span>
+                        <span>Golden Hour</span>
+                    </div>
                 </div>
-                <!-- Photo 9 -->
-                <div class="h-64 rounded-2xl overflow-hidden border border-slate-800/80 group shadow-lg bg-slate-900">
-                    <img src="assets/img/enduro-9.jpeg" alt="Enduro Noa 9" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+
+                <!-- Carte Photo 9 -->
+                <div class="bg-zinc-900/80 border border-white/10 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-white/30 transition duration-500 shadow-2xl">
+                    <div class="h-80 rounded-2xl overflow-hidden bg-black">
+                        <img src="assets/img/enduro-9.jpeg" alt="Enduro Noa" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
+                    </div>
+                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400">
+                        <span class="font-medium text-slate-200">Prêt au Départ</span>
+                        <span>Equipement</span>
+                    </div>
                 </div>
-                <!-- Photo 10 -->
-                <div class="h-64 rounded-2xl overflow-hidden border border-slate-800/80 group shadow-lg bg-slate-900">
-                    <img src="assets/img/enduro-10.jpeg" alt="Enduro Noa 10" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+
+                <!-- Carte Photo 10 -->
+                <div class="bg-zinc-900/80 border border-white/10 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-white/30 transition duration-500 shadow-2xl">
+                    <div class="h-80 rounded-2xl overflow-hidden bg-black">
+                        <img src="assets/img/enduro-10.jpeg" alt="Enduro Noa" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
+                    </div>
+                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400">
+                        <span class="font-medium text-slate-200">Machine prète</span>
+                        <span>Hardware</span>
+                    </div>
                 </div>
-                <!-- Photo 11 -->
-                <div class="h-64 rounded-2xl overflow-hidden border border-slate-800/80 group shadow-lg bg-slate-900 sm:col-span-2 md:col-span-1">
-                    <img src="assets/img/enduro-11.jpeg" alt="Enduro Noa 11" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+
+                <!-- Carte Photo 11 (Pleine largeur sur la dernière ligne) -->
+                <div class="bg-zinc-900/80 border border-white/10 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-white/30 transition duration-500 shadow-2xl md:col-span-2">
+                    <div class="h-96 rounded-2xl overflow-hidden bg-black">
+                        <img src="assets/img/enduro-11.jpeg" alt="Enduro Noa" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
+                    </div>
+                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400">
+                        <span class="font-medium text-slate-200">L'Esprit Enduro</span>
+                        <span>Ultimate Shot</span>
+                    </div>
                 </div>
             </div>
         </div>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-slate-800/80 py-10 text-center text-xs text-slate-500 mt-32 bg-slate-950/40">
-        <p>&copy; 2026 Noa - Portfolio ASRC & Projets. Tous droits réservés.</p>
+    <!-- Footer style Apple -->
+    <footer class="border-t border-white/10 py-12 text-center text-xs text-slate-500 mt-32 bg-black">
+        <p>&copy; 2026 Noa. Tous droits réservés. Conçu avec rigueur et passion.</p>
     </footer>
 
 </body>
