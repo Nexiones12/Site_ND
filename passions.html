@@ -50,23 +50,40 @@
         </nav>
     </header>
 
-    <main class="max-w-5xl mx-auto px-6 py-20 space-y-24">
-        <!-- Titre -->
-        <div class="text-center max-w-2xl mx-auto space-y-4 reveal-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out">
-            <span class="text-purple-600 dark:text-purple-400 text-xs font-bold uppercase tracking-widest">Performance & Maîtrise</span>
-            <h1 class="text-5xl md:text-7xl font-black tracking-tight text-slate-900 dark:text-white">L'Enduro Moto.</h1>
-            <p class="text-slate-600 dark:text-slate-400 text-base md:text-lg font-light leading-relaxed">
-                Précision, anticipation et dépassement de soi. Quand le terrain dicte les règles, chaque trajectoire compte.
-            </p>
-            <div class="pt-4">
-                <a href="https://www.youtube.com/channel/UCwe4tvImhK117oU1BbU0gpA" target="_blank" class="magnetic-btn inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 dark:bg-white text-white dark:text-black font-semibold text-xs tracking-wide hover:bg-purple-600 dark:hover:bg-purple-500 hover:text-white transition duration-300 shadow-xl cursor-pointer">
-                    <span>Explorer la chaîne YouTube</span>
-                    <span>&rarr;</span>
-                </a>
-            </div>
-        </div>
+    <main class="max-w-5xl mx-auto px-6 py-12 space-y-24">
+        
+        <!-- SECTION CINÉMATIQUE (VIDÉO EN FOND) -->
+        <!-- La classe rounded-[2.5rem] donne l'arrondi très Apple, overflow-hidden coupe ce qui dépasse -->
+        <section class="relative w-full rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 dark:border-white/10 reveal-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out group">
+            
+            <!-- Vidéo d'arrière-plan (autoplay, en boucle, muette) -->
+            <!-- object-cover permet à la vidéo de toujours remplir l'espace, scale-105 évite les bords blancs si elle bouge -->
+            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0 scale-105 group-hover:scale-100 transition-transform duration-1000">
+                <source src="assets/video/enduro-bg.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la balise vidéo.
+            </video>
 
-        <!-- Galerie en Grille -->
+            <!-- Filtre de couleur au-dessus de la vidéo pour rendre le texte lisible (Clair / Sombre) -->
+            <!-- Ce bloc assombrit ou éclaircit la vidéo selon le thème choisi par l'utilisateur -->
+            <div class="absolute inset-0 bg-white/50 dark:bg-black/60 backdrop-blur-[2px] z-10 transition-colors duration-500"></div>
+
+            <!-- Contenu textuel par-dessus la vidéo -->
+            <div class="relative z-20 text-center max-w-2xl mx-auto space-y-4 py-24 md:py-32 px-6">
+                <span class="text-purple-700 dark:text-purple-400 text-xs font-bold uppercase tracking-widest">Performance & Maîtrise</span>
+                <h1 class="text-5xl md:text-7xl font-black tracking-tight text-slate-900 dark:text-white drop-shadow-md">L'Enduro Moto.</h1>
+                <p class="text-slate-800 dark:text-slate-200 text-base md:text-lg font-medium md:font-light leading-relaxed drop-shadow-sm">
+                    Précision, anticipation et dépassement de soi. Quand le terrain dicte les règles, chaque trajectoire compte.
+                </p>
+                <div class="pt-6">
+                    <a href="https://www.youtube.com/channel/UCwe4tvImhK117oU1BbU0gpA" target="_blank" class="magnetic-btn inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-slate-900 dark:bg-white text-white dark:text-black font-semibold text-xs tracking-wide hover:bg-purple-600 dark:hover:bg-purple-500 hover:text-white transition duration-300 shadow-2xl cursor-pointer">
+                        <span>Explorer la chaîne YouTube</span>
+                        <span>&rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galerie en Grille (Restée intacte) -->
         <div class="space-y-8 pb-12">
             <div class="border-b border-slate-200 dark:border-white/10 pb-4 reveal-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out">
                 <h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Galerie Officielle</h2>
@@ -164,7 +181,7 @@
                     <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-600 dark:text-slate-400"><span class="font-medium text-slate-900 dark:text-slate-200">Machine Prête</span><span>Hardware</span></div>
                 </div>
 
-                <!-- Carte 11 (Pleine largeur sur la dernière ligne) -->
+                <!-- Carte 11 -->
                 <div class="tilt-card bg-white/60 dark:bg-zinc-900/40 backdrop-blur-sm border border-slate-200 dark:border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 shadow-xl dark:shadow-2xl md:col-span-2 cursor-pointer group reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 100ms;">
                     <div class="h-96 rounded-2xl overflow-hidden bg-slate-100 dark:bg-black relative">
                         <img src="assets/img/enduro-11.jpeg" alt="Enduro Noa" class="gallery-img w-full h-full object-cover transition duration-700 ease-out group-hover:scale-105">
@@ -180,9 +197,9 @@
         <p>&copy; 2026 Noa. Tous droits réservés.</p>
     </footer>
 
-    <!-- MODALE LIGHTBOX (Reste sombre pour le focus) -->
-    <div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-xl opacity-0 transition-opacity duration-300">
-        <button id="lightbox-close" class="absolute top-6 right-8 text-white/50 hover:text-white transition text-5xl font-light cursor-pointer">&times;</button>
+    <!-- MODALE LIGHTBOX -->
+    <div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-white/90 dark:bg-black/90 backdrop-blur-xl opacity-0 transition-opacity duration-300">
+        <button id="lightbox-close" class="absolute top-6 right-8 text-slate-900/50 dark:text-white/50 hover:text-slate-900 dark:hover:text-white transition text-5xl font-light cursor-pointer">&times;</button>
         <img id="lightbox-img" src="" alt="Zoom" class="max-h-[90vh] max-w-[90vw] rounded-2xl shadow-2xl object-contain scale-95 transition-transform duration-300">
     </div>
 
