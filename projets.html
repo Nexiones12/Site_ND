@@ -1,1 +1,36 @@
-s
+s<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets | Noa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased">
+    <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur border-b border-slate-800">
+        <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="text-lg font-bold text-cyan-400 tracking-wider">NOA.DEV</a>
+            <div class="flex gap-6 text-sm font-medium">
+                <a href="index.html" class="text-slate-400 hover:text-cyan-300 transition">Accueil</a>
+                <a href="projets.html" class="text-cyan-400 hover:text-cyan-300 transition">Projets</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-16 space-y-8">
+        <div>
+            <h1 class="text-3xl font-extrabold">Mes Projets</h1>
+            <p class="text-slate-400 text-sm mt-2">Découvrez mes réalisations en cours, notamment mes outils de supervision et d'infrastructure.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- Carte Projet 1 -->
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4">
+                <span class="text-xs px-3 py-1 bg-cyan-950 border border-cyan-800 text-cyan-400 rounded-full font-medium">En cours de dev</span>
+                <h2 class="text-xl font-bold text-slate-200">Outil de Supervision avec IA intégrée</h2>
+                <p class="text-slate-400 text-sm">Création d'un dashboard de supervision réseau/système couplé à une IA pour l'analyse prédictive d'incidents.</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
