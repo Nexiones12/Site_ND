@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noa | Portfolio & Projets ASRC</title>
-    <!-- Tailwind CSS CDN pour un design rapide et moderne -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-slate-950">
@@ -21,8 +21,8 @@
     </header>
 
     <!-- Section Hero / Présentation -->
-    <main class="max-w-6xl mx-auto px-6 py-16">
-        <section class="grid md:grid-cols-2 gap-12 items-center min-h-[70vh]">
+    <main class="max-w-6xl mx-auto px-6 py-16 space-y-20">
+        <section class="grid md:grid-cols-2 gap-12 items-center min-h-[60vh]">
             <div class="space-y-6">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/50 border border-cyan-800 text-cyan-400 text-xs font-semibold">
                     <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span> En alternance chez Syres Telecom
@@ -31,7 +31,7 @@
                     Salut, moi c'est <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Noa</span>
                 </h1>
                 <p class="text-slate-400 text-base md:text-lg leading-relaxed">
-                    Étudiant en <strong class="text-slate-200">3ème année ASRC</strong> (Administration des Systèmes, Réseaux et Cloud). Passionné par l'infrastructure, la sécurité, et en route vers un Master. Bienvenue sur mon portfolio personnel !
+                    Étudiant en <strong class="text-slate-200">3ème année ASRC</strong> (Administration des Systèmes, Réseaux et Cloud). Passionné par l'infrastructure, la cybersécurité, et en route vers un Master. Bienvenue sur mon portfolio !
                 </p>
                 <div class="flex flex-wrap gap-4 pt-2">
                     <a href="https://github.com" target="_blank" class="px-5 py-2.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-cyan-500 text-sm font-semibold transition flex items-center gap-2">
@@ -53,22 +53,41 @@
                         <p class="text-slate-400">Alternance chez Syres Telecom</p>
                     </li>
                     <li class="border-l-2 border-slate-700 pl-4 space-y-1">
-                        <span class="text-xs text-slate-400 font-semibold">Avant</span>
+                        <span class="text-xs text-slate-700 font-semibold text-slate-400">Avant</span>
                         <h3 class="font-bold text-slate-200">BTS CIEL</h3>
                         <p class="text-slate-400">Cybersécurité, Informatique et Électronique, réseaux</p>
                     </li>
                     <li class="border-l-2 border-slate-700 pl-4 space-y-1">
-                        <span class="text-xs text-slate-400 font-semibold">Lycée</span>
+                        <span class="text-xs text-slate-700 font-semibold text-slate-400">Lycée</span>
                         <h3 class="font-bold text-slate-200">Bac Pro SN - Option RISC</h3>
                         <p class="text-slate-400">Réseaux Informatiques et Systèmes Communicants</p>
                     </li>
                 </ul>
             </div>
         </section>
+
+        <!-- Section Compétences Techniques -->
+        <section class="space-y-6">
+            <h2 class="text-2xl font-bold tracking-tight text-slate-200">Domaines de Compétences</h2>
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900/50 border border-slate-800 p-5 rounded-xl space-y-2">
+                    <h3 class="font-bold text-cyan-400">Réseaux & Télécoms</h3>
+                    <p class="text-slate-400 text-sm">Routage, switching, protocoles réseaux, architectures télécoms (expérience Syres Telecom).</p>
+                </div>
+                <div class="bg-slate-900/50 border border-slate-800 p-5 rounded-xl space-y-2">
+                    <h3 class="font-bold text-cyan-400">Systèmes & Cloud</h3>
+                    <p class="text-slate-400 text-sm">Administration serveurs, virtualisation, déploiement et gestion d'infrastructures cloud.</p>
+                </div>
+                <div class="bg-slate-900/50 border border-slate-800 p-5 rounded-xl space-y-2">
+                    <h3 class="font-bold text-cyan-400">Sécurité & Supervision</h3>
+                    <p class="text-slate-400 text-sm">Sécurisation des environnements, outils de monitoring et automatisation par scripts.</p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800 py-8 text-center text-xs text-slate-500">
+    <footer class="border-t border-slate-800 py-8 text-center text-xs text-slate-500 mt-20">
         <p>&copy; 2026 Noa - Tous droits réservés.</p>
     </footer>
 
