@@ -4,19 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passions • Enduro | Noa</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Animation de balade circulaire fluide pour le fond */
+        @keyframes roam-1 {
+            0% { transform: translate(0vw, 0vh) scale(1); }
+            33% { transform: translate(25vw, 15vh) scale(1.2); }
+            66% { transform: translate(-15vw, 25vh) scale(0.9); }
+            100% { transform: translate(0vw, 0vh) scale(1); }
+        }
+        @keyframes roam-2 {
+            0% { transform: translate(0vw, 0vh) scale(1); }
+            33% { transform: translate(-25vw, -20vh) scale(1.1); }
+            66% { transform: translate(20vw, -15vh) scale(0.8); }
+            100% { transform: translate(0vw, 0vh) scale(1); }
+        }
+        .animate-roam-1 { animation: roam-1 20s infinite alternate ease-in-out; }
+        .animate-roam-2 { animation: roam-2 25s infinite alternate ease-in-out; }
+    </style>
 </head>
-<body class="bg-black text-slate-100 font-sans antialiased selection:bg-orange-500 selection:text-white relative overflow-x-hidden">
+<body class="bg-black text-slate-100 font-sans antialiased selection:bg-purple-500 selection:text-white relative overflow-x-hidden">
 
-    <!-- Effet de lueur d'arrière-plan orange/techno -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-orange-500/10 blur-[140px] rounded-full pointer-events-none -z-10"></div>
+    <!-- FOND ANIMÉ SOMBRE & VIOLET (Balade Circulaire) -->
+    <div class="fixed inset-0 w-full h-full z-[-1] overflow-hidden bg-black">
+        <!-- Lueur de base très sombre pour casser le noir absolu au centre -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-900/10 blur-[150px] rounded-full pointer-events-none"></div>
+        
+        <!-- Blob Violet qui se balade -->
+        <div class="absolute top-[10%] left-[10%] w-[600px] h-[600px] bg-purple-600/15 rounded-full mix-blend-screen filter blur-[120px] animate-roam-1"></div>
+        
+        <!-- Blob Indigo sombre qui se balade dans l'autre sens -->
+        <div class="absolute bottom-[10%] right-[10%] w-[700px] h-[700px] bg-indigo-700/15 rounded-full mix-blend-screen filter blur-[150px] animate-roam-2"></div>
+    </div>
 
-    <!-- En-tête / Navigation style Apple -->
-    <header class="sticky top-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/10 transition-all">
+    <!-- En-tête / Navigation -->
+    <header class="sticky top-0 z-50 bg-black/40 backdrop-blur-xl border-b border-white/5 transition-all">
         <nav class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between text-xs tracking-wide">
-            <a href="index.html" class="font-semibold text-white hover:text-orange-400 transition">NOA.DEV</a>
-            <div class="flex gap-8 font-medium text-slate-300">
+            <a href="index.html" class="font-semibold text-white hover:text-purple-400 transition">NOA.DEV</a>
+            <div class="flex gap-8 font-medium text-slate-400">
                 <a href="index.html" class="hover:text-white transition">Accueil</a>
                 <a href="passions.html" class="text-white font-semibold transition">Passions</a>
                 <a href="projets.html" class="hover:text-white transition">Projets & IA</a>
@@ -24,33 +49,33 @@
         </nav>
     </header>
 
-    <!-- Section Hero style Apple Keynote -->
     <main class="max-w-5xl mx-auto px-6 py-20 space-y-24">
         
-        <div class="text-center max-w-2xl mx-auto space-y-4">
-            <span class="text-orange-400 text-xs font-bold uppercase tracking-widest">Performance & Maîtrise</span>
+        <!-- En-tête de la page -->
+        <div class="text-center max-w-2xl mx-auto space-y-4 reveal-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out">
+            <span class="text-purple-400 text-xs font-bold uppercase tracking-widest">Performance & Maîtrise</span>
             <h1 class="text-5xl md:text-7xl font-black tracking-tight text-white">L'Enduro Moto.</h1>
             <p class="text-slate-400 text-base md:text-lg font-light leading-relaxed">
                 Précision, anticipation et dépassement de soi. Quand le terrain dicte les règles, chaque trajectoire compte.
             </p>
             <div class="pt-4">
-                <a href="https://www.youtube.com/channel/UCwe4tvImhK117oU1BbU0gpA" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black font-semibold text-xs tracking-wide hover:bg-orange-500 hover:text-white transition duration-300 shadow-xl">
+                <a href="https://www.youtube.com/channel/UCwe4tvImhK117oU1BbU0gpA" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black font-semibold text-xs tracking-wide hover:bg-purple-500 hover:text-white transition duration-300 shadow-xl">
                     <span>Explorer la chaîne YouTube</span>
                     <span>&rarr;</span>
                 </a>
             </div>
         </div>
 
-        <!-- Grille de photos style "Apple Cards" -->
+        <!-- Grille de photos -->
         <div class="space-y-8">
-            <div class="border-b border-white/10 pb-4">
+            <div class="border-b border-white/10 pb-4 reveal-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out">
                 <h2 class="text-xl font-bold tracking-tight text-white">Galerie Officielle</h2>
                 <p class="text-xs text-slate-400 mt-1">Cliquez sur une image pour l'agrandir.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Carte Photo 1 -->
-                <div class="bg-zinc-900/80 border border-white/10 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-white/30 transition duration-500 shadow-2xl">
+                <div class="bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-purple-500/30 transition duration-500 shadow-2xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 100ms;">
                     <div class="h-80 rounded-2xl overflow-hidden bg-black">
                         <img src="assets/img/enduro-1.jpeg" alt="Enduro Noa" class="gallery-img cursor-pointer w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
                     </div>
@@ -61,7 +86,7 @@
                 </div>
 
                 <!-- Carte Photo 2 -->
-                <div class="bg-zinc-900/80 border border-white/10 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-white/30 transition duration-500 shadow-2xl">
+                <div class="bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-purple-500/30 transition duration-500 shadow-2xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 200ms;">
                     <div class="h-80 rounded-2xl overflow-hidden bg-black">
                         <img src="assets/img/enduro-2.jpeg" alt="Enduro Noa" class="gallery-img cursor-pointer w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
                     </div>
@@ -72,7 +97,7 @@
                 </div>
 
                 <!-- Carte Photo 3 -->
-                <div class="bg-zinc-900/80 border border-white/10 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-white/30 transition duration-500 shadow-2xl">
+                <div class="bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-purple-500/30 transition duration-500 shadow-2xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 100ms;">
                     <div class="h-80 rounded-2xl overflow-hidden bg-black">
                         <img src="assets/img/enduro-3.jpeg" alt="Enduro Noa" class="gallery-img cursor-pointer w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
                     </div>
@@ -83,7 +108,7 @@
                 </div>
 
                 <!-- Carte Photo 4 -->
-                <div class="bg-zinc-900/80 border border-white/10 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-white/30 transition duration-500 shadow-2xl">
+                <div class="bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-purple-500/30 transition duration-500 shadow-2xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 200ms;">
                     <div class="h-80 rounded-2xl overflow-hidden bg-black">
                         <img src="assets/img/enduro-4.jpeg" alt="Enduro Noa" class="gallery-img cursor-pointer w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
                     </div>
@@ -94,73 +119,49 @@
                 </div>
 
                 <!-- Carte Photo 5 -->
-                <div class="bg-zinc-900/80 border border-white/10 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-white/30 transition duration-500 shadow-2xl">
+                <div class="bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-purple-500/30 transition duration-500 shadow-2xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 100ms;">
                     <div class="h-80 rounded-2xl overflow-hidden bg-black">
                         <img src="assets/img/enduro-5.jpeg" alt="Enduro Noa" class="gallery-img cursor-pointer w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
-                    </div>
-                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400">
-                        <span class="font-medium text-slate-200">Posture & Style</span>
-                        <span>Portrait</span>
                     </div>
                 </div>
 
                 <!-- Carte Photo 6 -->
-                <div class="bg-zinc-900/80 border border-white/10 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-white/30 transition duration-500 shadow-2xl">
+                <div class="bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-purple-500/30 transition duration-500 shadow-2xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 200ms;">
                     <div class="h-80 rounded-2xl overflow-hidden bg-black">
                         <img src="assets/img/enduro-6.jpeg" alt="Enduro Noa" class="gallery-img cursor-pointer w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
-                    </div>
-                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400">
-                        <span class="font-medium text-slate-200">Virage Serré</span>
-                        <span>Grip</span>
                     </div>
                 </div>
 
                 <!-- Carte Photo 7 -->
-                <div class="bg-zinc-900/80 border border-white/10 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-white/30 transition duration-500 shadow-2xl">
+                <div class="bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-purple-500/30 transition duration-500 shadow-2xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 100ms;">
                     <div class="h-80 rounded-2xl overflow-hidden bg-black">
                         <img src="assets/img/enduro-7.jpeg" alt="Enduro Noa" class="gallery-img cursor-pointer w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
-                    </div>
-                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400">
-                        <span class="font-medium text-slate-200">Pause Panorama</span>
-                        <span>Break</span>
                     </div>
                 </div>
 
                 <!-- Carte Photo 8 -->
-                <div class="bg-zinc-900/80 border border-white/10 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-white/30 transition duration-500 shadow-2xl">
+                <div class="bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-purple-500/30 transition duration-500 shadow-2xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 200ms;">
                     <div class="h-80 rounded-2xl overflow-hidden bg-black">
                         <img src="assets/img/enduro-8.jpeg" alt="Enduro Noa" class="gallery-img cursor-pointer w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
-                    </div>
-                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400">
-                        <span class="font-medium text-slate-200">Lumière Dorée</span>
-                        <span>Golden Hour</span>
                     </div>
                 </div>
 
                 <!-- Carte Photo 9 -->
-                <div class="bg-zinc-900/80 border border-white/10 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-white/30 transition duration-500 shadow-2xl">
+                <div class="bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-purple-500/30 transition duration-500 shadow-2xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 100ms;">
                     <div class="h-80 rounded-2xl overflow-hidden bg-black">
                         <img src="assets/img/enduro-9.jpeg" alt="Enduro Noa" class="gallery-img cursor-pointer w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
-                    </div>
-                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400">
-                        <span class="font-medium text-slate-200">Prêt au Départ</span>
-                        <span>Equipement</span>
                     </div>
                 </div>
 
                 <!-- Carte Photo 10 -->
-                <div class="bg-zinc-900/80 border border-white/10 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-white/30 transition duration-500 shadow-2xl">
+                <div class="bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-purple-500/30 transition duration-500 shadow-2xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 200ms;">
                     <div class="h-80 rounded-2xl overflow-hidden bg-black">
                         <img src="assets/img/enduro-10.jpeg" alt="Enduro Noa" class="gallery-img cursor-pointer w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
-                    </div>
-                    <div class="px-2 pb-2 flex justify-between items-center text-xs text-slate-400">
-                        <span class="font-medium text-slate-200">Machine prète</span>
-                        <span>Hardware</span>
                     </div>
                 </div>
 
                 <!-- Carte Photo 11 -->
-                <div class="bg-zinc-900/80 border border-white/10 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-white/30 transition duration-500 shadow-2xl md:col-span-2">
+                <div class="bg-zinc-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden p-4 space-y-4 group hover:border-purple-500/30 transition duration-500 shadow-2xl md:col-span-2 reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out">
                     <div class="h-96 rounded-2xl overflow-hidden bg-black">
                         <img src="assets/img/enduro-11.jpeg" alt="Enduro Noa" class="gallery-img cursor-pointer w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
                     </div>
@@ -171,73 +172,48 @@
                 </div>
             </div>
         </div>
-
     </main>
 
-    <!-- Footer style Apple -->
-    <footer class="border-t border-white/10 py-12 text-center text-xs text-slate-500 mt-32 bg-black">
-        <p>&copy; 2026 Noa. Tous droits réservés. Conçu avec rigueur et passion.</p>
+    <footer class="border-t border-white/5 py-12 text-center text-xs text-slate-600 mt-32 bg-black">
+        <p>&copy; 2026 Noa. Tous droits réservés.</p>
     </footer>
 
-    <!-- Modale Lightbox (Cachée par défaut) -->
+    <!-- Modale Lightbox -->
     <div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-xl opacity-0 transition-opacity duration-300">
-        <!-- Bouton Fermer -->
         <button id="lightbox-close" class="absolute top-6 right-8 text-white/50 hover:text-white transition text-5xl font-light">&times;</button>
-        <!-- Image en grand -->
-        <img id="lightbox-img" src="" alt="Zoom Enduro" class="max-h-[90vh] max-w-[90vw] rounded-2xl shadow-2xl object-contain scale-95 transition-transform duration-300">
+        <img id="lightbox-img" src="" alt="Zoom" class="max-h-[90vh] max-w-[90vw] rounded-2xl shadow-2xl object-contain scale-95 transition-transform duration-300">
     </div>
 
-    <!-- Script de gestion du clic (Lightbox) -->
+    <!-- SCRIPT (Lightbox + Scroll Reveal) -->
     <script>
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxClose = document.getElementById('lightbox-close');
-        const images = document.querySelectorAll('.gallery-img');
-
-        // Ouvrir la modale au clic sur une image
-        images.forEach(img => {
+        // 1. Script Lightbox
+        const lightbox = document.getElementById('lightbox'), lightboxImg = document.getElementById('lightbox-img'), lightboxClose = document.getElementById('lightbox-close');
+        document.querySelectorAll('.gallery-img').forEach(img => {
             img.addEventListener('click', () => {
-                lightboxImg.src = img.src; // Récupère la source de l'image cliquée
-                lightbox.classList.remove('hidden'); // Retire la classe "cachée"
-                lightbox.classList.add('flex'); // Ajoute flex pour centrer
-                
-                // Petit délai pour permettre l'animation CSS (fade in + zoom)
-                setTimeout(() => {
-                    lightbox.classList.remove('opacity-0');
-                    lightboxImg.classList.remove('scale-95');
-                    lightboxImg.classList.add('scale-100');
-                }, 10);
+                lightboxImg.src = img.src; lightbox.classList.remove('hidden'); lightbox.classList.add('flex');
+                setTimeout(() => { lightbox.classList.remove('opacity-0'); lightboxImg.classList.remove('scale-95'); lightboxImg.classList.add('scale-100'); }, 10);
             });
         });
-
-        // Fonction pour fermer la modale
         const closeModal = () => {
-            lightbox.classList.add('opacity-0'); // Démarre le fade out
-            lightboxImg.classList.remove('scale-100');
-            lightboxImg.classList.add('scale-95'); // Démarre le dé-zoom
-            
-            // Attend la fin de l'animation CSS avant de cacher complètement le bloc
-            setTimeout(() => {
-                lightbox.classList.add('hidden');
-                lightbox.classList.remove('flex');
-            }, 300);
+            lightbox.classList.add('opacity-0'); lightboxImg.classList.remove('scale-100'); lightboxImg.classList.add('scale-95');
+            setTimeout(() => { lightbox.classList.add('hidden'); lightbox.classList.remove('flex'); }, 300);
         };
-
-        // Fermer au clic sur la croix
         lightboxClose.addEventListener('click', closeModal);
-        
-        // Fermer au clic dans le vide autour de l'image
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeModal();
-        });
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) closeModal(); });
 
-        // Fermer avec la touche Echap
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
-                closeModal();
-            }
-        });
+        // 2. Script d'apparition au Scroll
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0', 'translate-y-12', 'translate-y-16');
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
     </script>
-
 </body>
 </html>

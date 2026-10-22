@@ -4,16 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noa | Portfolio - Administrateur Systèmes, Réseaux & Cloud (ASRC)</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Animation du fond façon vague/blob */
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob { animation: blob 10s infinite alternate ease-in-out; }
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
+    </style>
 </head>
 <body class="bg-black text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-white relative overflow-x-hidden">
 
-    <!-- Effet de lueur d'arrière-plan moderne -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-cyan-600/15 blur-[140px] rounded-full pointer-events-none -z-10"></div>
+    <!-- FOND ANIMÉ STYLE APPLE (Vagues/Blobs) -->
+    <div class="fixed inset-0 w-full h-full z-[-1] overflow-hidden">
+        <!-- Cercle Cyan -->
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-cyan-600/20 rounded-full mix-blend-screen filter blur-[120px] animate-blob"></div>
+        <!-- Cercle Bleu -->
+        <div class="absolute top-[20%] right-[-10%] w-[600px] h-[600px] bg-blue-600/15 rounded-full mix-blend-screen filter blur-[150px] animate-blob animation-delay-2000"></div>
+        <!-- Cercle Violet -->
+        <div class="absolute bottom-[-20%] left-[20%] w-[700px] h-[700px] bg-indigo-600/15 rounded-full mix-blend-screen filter blur-[150px] animate-blob animation-delay-4000"></div>
+    </div>
 
-    <!-- En-tête / Navigation style Apple -->
-    <header class="sticky top-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/10 transition-all">
+    <!-- En-tête / Navigation -->
+    <header class="sticky top-0 z-50 bg-black/50 backdrop-blur-xl border-b border-white/10 transition-all">
         <nav class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between text-xs tracking-wide">
             <a href="index.html" class="font-semibold text-white hover:text-cyan-400 transition">NOA.DEV</a>
             <div class="flex gap-8 font-medium text-slate-300">
@@ -24,13 +42,10 @@
         </nav>
     </header>
 
-    <!-- Section Principale / Hero -->
     <main class="max-w-5xl mx-auto px-6 py-20 space-y-28">
         
-        <section class="grid md:grid-cols-12 gap-12 items-center">
-            <!-- Texte de présentation détaillé -->
+        <section class="grid md:grid-cols-12 gap-12 items-center reveal-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out">
             <div class="md:col-span-7 space-y-6">
-                <!-- Bulle Photo de Profil & Badge -->
                 <div class="flex items-center gap-4">
                     <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 p-[2px] shadow-lg shadow-cyan-500/20 shrink-0">
                         <div class="w-full h-full bg-black rounded-full overflow-hidden flex items-center justify-center">
@@ -85,37 +100,37 @@
             </div>
         </section>
 
-        <!-- Section Compétences (Maintenant cliquable) -->
+        <!-- Section Compétences avec Apparitions au scroll -->
         <section class="space-y-12">
-            <div class="text-center max-w-2xl mx-auto space-y-2">
+            <div class="text-center max-w-2xl mx-auto space-y-2 reveal-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out">
                 <h2 class="text-3xl font-bold tracking-tight text-white">Expertises.</h2>
                 <p class="text-slate-400 text-sm font-light">Cliquez sur une expertise pour voir les détails de mes interventions.</p>
             </div>
 
             <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-                <!-- Carte 1 -->
-                <div class="expertise-card cursor-pointer bg-zinc-900/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 hover:scale-[1.03] hover:bg-zinc-800/80 hover:border-cyan-500/50 transition duration-500 group shadow-xl" data-id="infra">
-                    <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition duration-500">⚡</div>
+                <!-- Cartes avec animation de scroll en cascade -->
+                <div class="expertise-card cursor-pointer bg-zinc-900/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 hover:scale-[1.03] hover:bg-zinc-800/80 hover:border-cyan-500/50 transition duration-500 group shadow-xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 100ms;" data-id="infra">
+                    <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 transition duration-500">⚡</div>
                     <h3 class="font-bold text-white tracking-tight">Infrastructure & Réseaux</h3>
                     <p class="text-slate-400 text-xs leading-relaxed">Architectures from scratch, VLANs, SIP, serveurs GPO.</p>
                     <div class="pt-2 text-cyan-400 text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300">Voir les détails &rarr;</div>
                 </div>
-                <!-- Carte 2 -->
-                <div class="expertise-card cursor-pointer bg-zinc-900/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 hover:scale-[1.03] hover:bg-zinc-800/80 hover:border-cyan-500/50 transition duration-500 group shadow-xl" data-id="secu">
-                    <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition duration-500">🛡️</div>
+                
+                <div class="expertise-card cursor-pointer bg-zinc-900/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 hover:scale-[1.03] hover:bg-zinc-800/80 hover:border-cyan-500/50 transition duration-500 group shadow-xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 200ms;" data-id="secu">
+                    <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 transition duration-500">🛡️</div>
                     <h3 class="font-bold text-white tracking-tight">Supervision & Sécurité</h3>
                     <p class="text-slate-400 text-xs leading-relaxed">Outils de monitoring proactifs et anticipation des pannes.</p>
                     <div class="pt-2 text-cyan-400 text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300">Voir les détails &rarr;</div>
                 </div>
-                <!-- Carte 3 -->
-                <div class="expertise-card cursor-pointer bg-zinc-900/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 hover:scale-[1.03] hover:bg-zinc-800/80 hover:border-cyan-500/50 transition duration-500 group shadow-xl" data-id="hard">
-                    <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition duration-500">🔧</div>
+                
+                <div class="expertise-card cursor-pointer bg-zinc-900/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 hover:scale-[1.03] hover:bg-zinc-800/80 hover:border-cyan-500/50 transition duration-500 group shadow-xl reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 300ms;" data-id="hard">
+                    <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 transition duration-500">🔧</div>
                     <h3 class="font-bold text-white tracking-tight">Hardware & Terrain</h3>
                     <p class="text-slate-400 text-xs leading-relaxed">Montage PC de précision, diagnostic sur site et résolutions complexes.</p>
                     <div class="pt-2 text-cyan-400 text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300">Voir les détails &rarr;</div>
                 </div>
-                <!-- Carte 4 -->
-                <div class="expertise-card cursor-pointer bg-zinc-900/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 sm:col-span-2 md:col-span-3 hover:scale-[1.02] hover:bg-zinc-800/80 hover:border-cyan-500/50 transition duration-500 group shadow-xl flex flex-col md:flex-row md:items-center gap-6" data-id="lead">
+                
+                <div class="expertise-card cursor-pointer bg-zinc-900/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 sm:col-span-2 md:col-span-3 hover:scale-[1.02] hover:bg-zinc-800/80 hover:border-cyan-500/50 transition duration-500 group shadow-xl flex flex-col md:flex-row md:items-center gap-6 reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out" style="transition-delay: 400ms;" data-id="lead">
                     <div class="w-12 h-12 shrink-0 rounded-full bg-black border border-white/10 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 transition duration-500">👥</div>
                     <div class="flex-1">
                         <h3 class="font-bold text-white tracking-tight">Leadership & Relation Client</h3>
@@ -126,11 +141,11 @@
             </div>
         </section>
 
-        <!-- Section Objectifs (Style bannière premium) -->
-        <section class="pt-10">
+        <!-- Section Objectifs -->
+        <section class="pt-10 reveal-on-scroll opacity-0 translate-y-16 transition-all duration-1000 ease-out">
             <div class="bg-gradient-to-br from-zinc-900 via-black to-cyan-950/40 border border-white/10 p-10 md:p-14 rounded-[2.5rem] relative overflow-hidden group hover:border-cyan-500/30 transition duration-700 shadow-2xl">
-                <!-- Cercle de lumière flou en fond -->
-                <div class="absolute top-[-50%] right-[-10%] w-96 h-96 bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-cyan-500/20 transition duration-700"></div>
+                <!-- Cercle de lumière flou en fond (réagit au survol) -->
+                <div class="absolute top-[-50%] right-[-10%] w-96 h-96 bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-cyan-500/30 transition duration-700"></div>
                 
                 <div class="relative z-10 space-y-6 max-w-3xl">
                     <div class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-2xl shadow-inner backdrop-blur-md">🇯🇵</div>
@@ -144,17 +159,14 @@
 
     </main>
 
-    <!-- Footer -->
     <footer class="border-t border-white/10 py-12 text-center text-xs text-slate-500 mt-32 bg-black">
-        <p>&copy; 2026 Noa. Tous droits réservés. Conçu avec rigueur.</p>
+        <p>&copy; 2026 Noa. Tous droits réservés.</p>
     </footer>
 
-    <!-- MODALE DES EXPERTISES (Cachée par défaut) -->
+    <!-- MODALE DES EXPERTISES (Inchangée) -->
     <div id="exp-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-md opacity-0 transition-opacity duration-300 px-4">
         <div id="exp-modal-content" class="bg-zinc-900 border border-white/10 rounded-3xl p-8 max-w-2xl w-full shadow-2xl scale-95 transition-transform duration-300 relative overflow-hidden">
-            <!-- Déco floue en arrière-plan de la modale -->
             <div class="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
-            
             <button id="exp-close" class="absolute top-6 right-6 text-white/50 hover:text-white transition text-3xl font-light z-10">&times;</button>
             
             <div class="relative z-10 space-y-6">
@@ -162,7 +174,6 @@
                     <div id="exp-icon" class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center text-2xl"></div>
                     <h3 id="exp-title" class="text-2xl font-bold text-white tracking-tight"></h3>
                 </div>
-                
                 <div class="space-y-4 text-sm leading-relaxed">
                     <div>
                         <h4 class="text-cyan-400 font-bold uppercase tracking-wider text-xs mb-1">Les Tâches</h4>
@@ -181,93 +192,45 @@
         </div>
     </div>
 
-    <!-- SCRIPT GESTION MODALE EXPERTISES -->
+    <!-- SCRIPT GESTION MODALE & SCROLL REVEAL -->
     <script>
-        // Données des expertises
+        // 1. Script de la Modale Expertises (Inchangé)
         const expertisesData = {
-            'infra': {
-                icon: '⚡',
-                title: 'Infrastructure & Réseaux',
-                tasks: "Déploiement de serveurs physiques et virtuels de zéro, configuration de switchs et routeurs professionnels, segmentation via VLANs, paramétrage de la téléphonie sur IP (SIP) et gestion centralisée des stratégies de groupe (GPO).",
-                goal: "Bâtir une architecture réseau robuste, hautement disponible et évolutive, capable de soutenir l'activité de l'entreprise ou des clients sans la moindre interruption.",
-                result: "Une infrastructure réseau fiable et optimisée, une communication interne fluide, et une gestion des accès sécurisée garantissant un environnement de travail stable."
-            },
-            'secu': {
-                icon: '🛡️',
-                title: 'Supervision & Sécurité',
-                tasks: "Déploiement de sondes de monitoring (type Zabbix, PRTG...), configuration d'alertes en temps réel, analyse de logs, et mise en place de politiques de pare-feu strictes.",
-                goal: "Avoir un contrôle total sur la santé de l'infrastructure, anticiper les pannes avant qu'elles n'impactent les utilisateurs, et garantir l'intégrité des données face aux menaces extérieures.",
-                result: "Un dashboard de supervision centralisé offrant une vision en temps réel, une réduction drastique des temps d'indisponibilité (downtime), et un réseau hermétique aux cybermenaces."
-            },
-            'hard': {
-                icon: '🔧',
-                title: 'Hardware & Dépannage',
-                tasks: "Montage complet de postes de travail haute précision, cable management (câblage) chirurgical dans les baies serveurs, diagnostic matériel sur site, et remplacement de composants critiques.",
-                goal: "Fournir un matériel performant, esthétique et durable, et restaurer la productivité des utilisateurs le plus rapidement possible lors d'un incident technique.",
-                result: "Des postes et des baies serveurs parfaitement propres et documentés, une durée de vie du matériel allongée, et un taux de satisfaction utilisateur maximal grâce à des interventions éclairs."
-            },
-            'lead': {
-                icon: '👥',
-                title: 'Leadership & Relation Client',
-                tasks: "Conduite de projets techniques, écoute active des besoins lors d'audits clients, répartition stratégique des tâches techniques au sein de l'équipe, et vulgarisation de concepts IT complexes.",
-                goal: "Aligner la technique pure sur les véritables besoins métiers du client, fédérer l'équipe autour d'objectifs clairs, et instaurer un climat de confiance total.",
-                result: "Des projets livrés dans les délais, une équipe technique motivée et coordonnée, et des clients fidélisés et rassurés par une communication transparente."
-            }
+            'infra': { icon: '⚡', title: 'Infrastructure & Réseaux', tasks: "Déploiement de serveurs, VLANs, SIP, et gestion GPO.", goal: "Bâtir une architecture réseau robuste et évolutive.", result: "Une infrastructure fiable et optimisée." },
+            'secu': { icon: '🛡️', title: 'Supervision & Sécurité', tasks: "Monitoring proactif, analyse de logs, pare-feu.", goal: "Anticiper les pannes et garantir l'intégrité.", result: "Un réseau hermétique et une haute disponibilité." },
+            'hard': { icon: '🔧', title: 'Hardware & Dépannage', tasks: "Montage PC précision, diagnostic et remplacement.", goal: "Fournir un matériel performant et réparer vite.", result: "Durée de vie allongée et satisfaction utilisateur." },
+            'lead': { icon: '👥', title: 'Leadership & Relation Client', tasks: "Conduite de projets, audits, et vulgarisation.", goal: "Aligner la technique sur les besoins métiers.", result: "Projets livrés, équipe fédérée, clients rassurés." }
         };
-
-        const modal = document.getElementById('exp-modal');
-        const modalContent = document.getElementById('exp-modal-content');
-        const closeBtn = document.getElementById('exp-close');
-        
-        // Cibler les éléments à remplir
-        const iconEl = document.getElementById('exp-icon');
-        const titleEl = document.getElementById('exp-title');
-        const tasksEl = document.getElementById('exp-tasks');
-        const goalEl = document.getElementById('exp-goal');
-        const resultEl = document.getElementById('exp-result');
-
-        // Ouvrir la modale
+        const modal = document.getElementById('exp-modal'), modalContent = document.getElementById('exp-modal-content'), closeBtn = document.getElementById('exp-close');
+        const iconEl = document.getElementById('exp-icon'), titleEl = document.getElementById('exp-title'), tasksEl = document.getElementById('exp-tasks'), goalEl = document.getElementById('exp-goal'), resultEl = document.getElementById('exp-result');
         document.querySelectorAll('.expertise-card').forEach(card => {
             card.addEventListener('click', () => {
-                const id = card.getAttribute('data-id');
-                const data = expertisesData[id];
-
-                // Remplir les données
-                iconEl.textContent = data.icon;
-                titleEl.textContent = data.title;
-                tasksEl.textContent = data.tasks;
-                goalEl.textContent = data.goal;
-                resultEl.textContent = data.result;
-
-                // Afficher la modale avec animation
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                setTimeout(() => {
-                    modal.classList.remove('opacity-0');
-                    modalContent.classList.remove('scale-95');
-                    modalContent.classList.add('scale-100');
-                }, 10);
+                const data = expertisesData[card.getAttribute('data-id')];
+                iconEl.textContent = data.icon; titleEl.textContent = data.title; tasksEl.textContent = data.tasks; goalEl.textContent = data.goal; resultEl.textContent = data.result;
+                modal.classList.remove('hidden'); modal.classList.add('flex');
+                setTimeout(() => { modal.classList.remove('opacity-0'); modalContent.classList.remove('scale-95'); modalContent.classList.add('scale-100'); }, 10);
             });
         });
-
-        // Fermer la modale
         const closeExpModal = () => {
-            modal.classList.add('opacity-0');
-            modalContent.classList.remove('scale-100');
-            modalContent.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            }, 300);
+            modal.classList.add('opacity-0'); modalContent.classList.remove('scale-100'); modalContent.classList.add('scale-95');
+            setTimeout(() => { modal.classList.add('hidden'); modal.classList.remove('flex'); }, 300);
         };
-
         closeBtn.addEventListener('click', closeExpModal);
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeExpModal();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeExpModal();
-        });
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeExpModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeExpModal(); });
+
+        // 2. SCRIPT D'APPARITION AU SCROLL (Style Apple)
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0', 'translate-y-12', 'translate-y-16');
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
